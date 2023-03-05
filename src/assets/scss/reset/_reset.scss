@@ -1,82 +1,76 @@
 * {
-	padding: 0;
-	margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 *,
 *:before,
 *:after {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 :focus,
 :active {
-	outline: none;
+  outline: none;
 }
 
 a:focus,
 a:active {
-	outline: none;
+  outline: none;
 }
 
 nav,
 footer,
 header,
 aside {
-	display: block;
+  display: block;
 }
 
 html,
 body {
-	height: 100%;
-	width: 100%;
-	font-size: 100%;
-	line-height: 1;
-	font-size: 14px;
-	-ms-text-size-adjust: 100%;
-	-moz-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
-  font-family: "Lexend", sans-serif;
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  background-color: #ffffff;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
   font-style: normal;
   font-weight: 400;
 }
 
-input,
-button,
-textarea {
-	font-family: inherit;
-}
-
 input::-ms-clear {
-	display: none;
+  display: none;
 }
 
 button {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 button::-moz-focus-inner {
-	padding: 0;
-	border: 0;
+  padding: 0;
+  border: 0;
 }
 
 a,
 a:visited {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 ul li {
-	list-style: none;
+  list-style: none;
 }
 
 img {
-	vertical-align: top;
+  vertical-align: top;
 }
 
 h1,
@@ -85,8 +79,8 @@ h3,
 h4,
 h5,
 h6 {
-	font-size: inherit;
-	font-weight: 400;
+  font-size: inherit;
+  font-weight: 400;
 }
 *,
 *:before,
@@ -104,7 +98,6 @@ h6 {
 *::-webkit-scrollbar-thumb {
   background-color: #0076a5;
   border-radius: 2px;
- 
 }
 *::-webkit-media-controls-play-button {
   display: none !important;
@@ -118,16 +111,16 @@ h6 {
 * {
   -webkit-tap-highlight-color: transparent;
 }
-input[type='number']::-webkit-outer-spin-button,
-input[type='number']::-webkit-inner-spin-button {
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
-input[type='number']:hover,
-input[type='number']:focus {
+input[type="number"]:hover,
+input[type="number"]:focus {
   -moz-appearance: number-input;
 }
 
@@ -141,7 +134,6 @@ button {
   border: none;
   padding: 0;
   margin: 0;
-  font-family: 'Outfit';
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -156,7 +148,6 @@ a {
   text-decoration: none;
   cursor: pointer;
   outline: none;
-  font-family: 'Outfit';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
