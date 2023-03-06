@@ -8,7 +8,15 @@ export const Wrapper = styled.header`
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgb(255, 255, 255);
+  transition: all 0.4s ease;
+  ${(props) =>
+    props.onScreen
+      ? `
+      backdrop-filter: blur(100px);
+      background-color: rgba(255, 255, 255, 0.01);
+      `
+      : `
+  background-color: rgb(255, 255, 255);`}
   backdrop-filter: blur(3px);
 `;
 
@@ -22,7 +30,14 @@ export const Navigations = styled.ul`
 export const Item = styled.li`
   a {
     transition: all 0.3s ease;
-    color: #191919;
+    ${(props) =>
+      props.onScreen
+        ? `
+      color: #fff;
+      `
+        : `
+      color: #000;
+`}
     font-weight: 500;
     font-size: 14px;
   }
@@ -39,7 +54,7 @@ export const HeaderContainer = styled(MainWrapper)`
   align-items: center;
 `;
 export const Logo = styled.img`
-  height: 100%;
+  height: 50%;
   width: auto;
   object-fit: contain;
 `;
@@ -62,7 +77,14 @@ export const Market = styled.button`
   }
 `;
 export const NumberPhone = styled.div`
-  color: #191919;
+  ${(props) =>
+    props.onScreen
+      ? `
+      color: #fff;
+      `
+      : `
+      color: #191919;
+`}
   font-size: 14px;
   line-height: 18px;
   cursor: pointer;

@@ -13,16 +13,34 @@ export const Wrapper = styled.button`
   width: fit-content;
   height: fit-content;
   padding: 12px 32px;
-  background-color: #fc4734;
-  color: #fff;
   position: relative;
   overflow: hidden;
   font-weight: 500;
   transition: background 400ms;
-  color: #fff;
   outline: 0;
   border: 0;
   border-radius: 50px;
+  border: 1px #fc4734 solid;
+
+  ${(props) =>
+    props.outline
+      ? `   
+      color: #fc4734;
+      @media screen and (min-width: 1024px) {
+        &:hover {
+          background-color: #c31b0818;
+        }
+      }
+      `
+      : `
+      background-color: #fc4734;
+      color: #fff;
+      @media screen and (min-width: 1024px) {
+        &:hover {
+          background-color: #c31b08ff;
+        }
+      }
+  `}
 
   span.ripple {
     position: absolute;
@@ -30,15 +48,6 @@ export const Wrapper = styled.button`
     transform: scale(0);
     animation: ${ripple} 600ms linear;
     background-color: rgba(255, 255, 255, 0.7);
-  }
-  .title {
-    position: relative;
-    z-index: 1;
-  }
-  @media screen and (min-width: 1024px) {
-    &:hover {
-      background-color: #c31b08ff;
-    }
   }
 `;
 
@@ -51,7 +60,7 @@ const RedButton = (props) => {
         createRipple(e);
       }}
     >
-      <span className='title'>{props?.children}</span>
+      {props?.children}
     </Wrapper>
   );
 };

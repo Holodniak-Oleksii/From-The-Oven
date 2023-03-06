@@ -4,12 +4,13 @@ export const Background = styled.div`
   background-color: rgb(32, 27, 50);
   width: 100%;
   padding: 120px 0 60px 0;
+  overflow: hidden;
+  position: relative;
 `;
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  overflow: hidden;
   width: 100%;
 
   .paragraph {
@@ -22,6 +23,7 @@ export const Wrapper = styled.div`
 `;
 export const Pizza = styled.div`
   width: 50%;
+  overflow: hidden;
 `;
 
 export const Slogan = styled.div`
@@ -34,7 +36,7 @@ export const Slogan = styled.div`
   padding: 0 20px;
 `;
 export const Title = styled.h1`
-  font-size: 7rem;
+  font-size: 5rem;
   color: #fff;
   text-align: center;
   font-style: italic;

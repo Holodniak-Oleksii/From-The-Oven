@@ -49,6 +49,28 @@ const useAnimation = (ref) => {
           },
         }
       );
+      gsap.fromTo(
+        ".bottom-appear",
+        {
+          autoAlpha: 0,
+          y: 100,
+          duration: 1,
+          ease: "power2",
+        },
+        {
+          duration: 1,
+          autoAlpha: 1,
+          y: 0,
+          ease: "power2",
+          scrollTrigger: {
+            markers: true,
+            trigger: ".bottom-appear",
+            start: "top bottom",
+            end: `bottom center`,
+            toggleActions: "restart reverse restart reverse",
+          },
+        }
+      );
     }, ref);
     return () => ctx.revert(); // cleanup!
   }, [ref]);
