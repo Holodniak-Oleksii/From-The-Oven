@@ -49,6 +49,7 @@ export const Item = styled.li`
 `;
 export const HeaderContainer = styled(MainWrapper)`
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;

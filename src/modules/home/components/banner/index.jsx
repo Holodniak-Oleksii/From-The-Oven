@@ -11,7 +11,7 @@ const Banner = () => {
       <Bubbles />
       <Container>
         <Wrapper>
-          <Slogan className='left-appear'>
+          <Slogan>
             <Title>From the Oven</Title>
             <p className='paragraph '>
               Taste the tastiest pizzas from our pizzeria - tender dough,

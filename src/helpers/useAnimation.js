@@ -63,7 +63,6 @@ const useAnimation = (ref) => {
           y: 0,
           ease: "power2",
           scrollTrigger: {
-            markers: true,
             trigger: ".bottom-appear",
             start: "top bottom",
             end: `bottom center`,
