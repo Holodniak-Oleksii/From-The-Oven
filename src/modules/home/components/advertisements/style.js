@@ -18,7 +18,6 @@ export const Wrapper = styled.div`
   height: 500px;
   background-color: rgb(32, 27, 50);
   overflow: hidden;
-  margin: 40px 0 20px 0;
   padding: 20px 0;
   .container {
     height: 100%;

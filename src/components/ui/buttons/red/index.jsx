@@ -59,6 +59,7 @@ const RedButton = (props) => {
         props.onClick?.();
         createRipple(e);
       }}
+      type={props.button || "button"}
     >
       {props?.children}
     </Wrapper>

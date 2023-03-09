@@ -24,14 +24,4 @@ export const Item = styled.div`
     font-weight: 300;
   }
 `;
-export const Avatar = styled.div`
-  ${flex_center}
-  background-color: #201B32;
-  padding: 25px;
-  border-radius: 50%;
-  cursor: pointer;
-  svg {
-    width: 30px;
-    height: 30px;
-  }
-`;
+

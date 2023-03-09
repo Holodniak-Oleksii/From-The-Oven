@@ -3,7 +3,7 @@ import {
   IconHeadset,
   IconPresent,
   IconWallet,
-} from "@/assets/icons";
+} from "@/components/icons";
 
 export const data = [
   {
