@@ -1,9 +1,10 @@
 import React from "react";
+
 import { IconEmail } from "@/components/icons";
+import { Field, RedButton } from "@/components/ui";
+
 import { Avatar } from "../../style";
 import { Wrapper, Text, Email } from "./style";
-import Field from "@/components/ui/inputs/field";
-import RedButton from "@/components/ui/buttons/red";
 
 const Discount = () => {
   return (

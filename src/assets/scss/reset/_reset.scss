@@ -42,7 +42,9 @@ body {
   font-style: normal;
   font-weight: 400;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 input::-ms-clear {
   display: none;
 }

@@ -13,6 +13,7 @@ export const Avatar = styled.div`
   ${flex_center}
   background-color: #201B32;
   padding: 25px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   cursor: pointer;
   svg {

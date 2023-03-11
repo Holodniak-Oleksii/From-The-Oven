@@ -51,7 +51,7 @@ export const Wrapper = styled.button`
   }
 `;
 
-const RedButton = (props) => {
+const Button = (props) => {
   return (
     <Wrapper
       {...props}
@@ -66,4 +66,4 @@ const RedButton = (props) => {
   );
 };
 
-export default RedButton;
+export default Button;

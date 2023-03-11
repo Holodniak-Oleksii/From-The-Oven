@@ -1,19 +1,24 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import { Pagination, Autoplay } from "swiper";
+
 import Item from "./item";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import { Container } from "./style";
 
 const Contact = ({ data }) => {
   return (
-    <div>
-      <Swiper // install Swiper modules
-        spaceBetween={50}
+    <Container>
+      <Swiper
+        speed={1000}
+        autoplay
+        loop
+        modules={[Pagination, Autoplay]}
         slidesPerView={1}
-        navigation
         pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
       >
         {data.map((item) => (
           <SwiperSlide key={item.id}>
@@ -21,7 +26,7 @@ const Contact = ({ data }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </Container>
   );
 };
 

@@ -1,9 +1,10 @@
 import React from "react";
-import RedButton from "@/components/ui/buttons/red";
-import { Wrapper, Title, Slogan, Pizza, Background } from "./style";
+
 import ThreeDPizza from "../3d";
 import Container from "@/components/containers";
-import Bubbles from "@/components/ui/effects/bubble";
+import { Bubbles, RedButton } from "@/components/ui";
+
+import { Wrapper, Title, Slogan, Pizza, Background } from "./style";
 
 const Banner = () => {
   return (

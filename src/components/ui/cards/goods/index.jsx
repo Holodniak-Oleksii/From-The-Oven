@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import RedButton from "../../buttons/red";
 import { Wrapper, Avatar, Size, Group } from "./style";
 
-const ProductCard = ({ item }) => {
+const Card = ({ item }) => {
   const [activeSize, setSelectedSize] = useState(40);
   return (
     <Wrapper>
@@ -34,4 +34,4 @@ const ProductCard = ({ item }) => {
   );
 };
 
-export default ProductCard;
+export default Card;

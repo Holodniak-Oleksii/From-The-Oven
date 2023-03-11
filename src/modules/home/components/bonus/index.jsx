@@ -1,7 +1,9 @@
 import React from "react";
+
 import { Avatar } from "../../style";
-import { data } from "./data";
 import { Wrapper, Item } from "./style";
+
+import { data } from "./data";
 
 const Bonus = () => {
   return (

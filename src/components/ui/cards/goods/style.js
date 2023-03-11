@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   padding: 16px 20px;
   background: rgba(246, 240, 240, 0.58);
   border: 1px solid #fff;
-  box-shadow: 12px 12px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 12px 12px 40px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(6px);
   gap: 16px;
   border-radius: 16px;

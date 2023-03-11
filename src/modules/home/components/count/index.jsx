@@ -1,5 +1,7 @@
 import React from "react";
+
 import Container from "@/components/containers";
+
 import { Flex, Wrapper, Item } from "./style";
 
 const Count = ({ data }) => {
