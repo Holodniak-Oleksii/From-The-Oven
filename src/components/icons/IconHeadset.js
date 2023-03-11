@@ -1,6 +1,6 @@
 import React from "react";
 
-const Icon = ({ stroke = "#fff" }) => (
+const Icon = ({ stroke = "#000" }) => (
   <svg
     width='24'
     height='24'

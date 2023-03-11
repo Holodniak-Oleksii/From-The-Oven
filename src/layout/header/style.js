@@ -26,6 +26,9 @@ export const Navigations = styled.ul`
   justify-content: flex-start;
   align-items: center;
   gap: 24px;
+  @media screen and (max-width: 767px) {
+    gap: 16px;
+  }
 `;
 export const Item = styled.li`
   a {
@@ -44,6 +47,11 @@ export const Item = styled.li`
   &:hover {
     a {
       color: #d00e29;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    a {
+      font-size: 12px;
     }
   }
 `;
@@ -65,6 +73,9 @@ export const Flex = styled.div`
   align-items: center;
   gap: 32px;
   height: 100%;
+  @media screen and (max-width: 767px) {
+    gap: 16px;
+  }
 `;
 export const Market = styled.button`
   height: 100%;
@@ -89,4 +100,7 @@ export const NumberPhone = styled.div`
   font-size: 14px;
   line-height: 18px;
   cursor: pointer;
+  @media screen and (max-width: 767px) {
+    font-size: 12px;
+  }
 `;

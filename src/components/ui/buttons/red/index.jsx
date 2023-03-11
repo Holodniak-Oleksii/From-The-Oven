@@ -21,6 +21,7 @@ export const Wrapper = styled.button`
   border: 0;
   border-radius: 50px;
   border: 1px #fc4734 solid;
+  white-space: nowrap;
 
   ${(props) =>
     props.outline

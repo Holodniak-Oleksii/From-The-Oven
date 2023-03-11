@@ -20,6 +20,17 @@ export const Wrapper = styled.div`
     line-height: 2rem;
     width: 80%;
   }
+  @media screen and (max-width: 1280px) {
+    .paragraph {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+  @media screen and (max-width: 540px) {
+    .paragraph {
+      width: 100%;
+    }
+  }
 `;
 export const Pizza = styled.div`
   width: 50%;
@@ -34,6 +45,17 @@ export const Slogan = styled.div`
   flex-direction: column;
   gap: 12px;
   padding: 0 20px;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 540px) {
+    padding: 0;
+
+    .red-btn {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+  }
 `;
 export const Title = styled.h1`
   font-size: 5rem;
@@ -55,5 +77,14 @@ export const Title = styled.h1`
     background: linear-gradient(to top, #e64242c5 0%, #ff1a16 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  @media screen and (max-width: 1280px) {
+    font-size: 3rem;
+    &::before {
+      font-size: 1rem;
+    }
+  }
+  @media screen and (max-width: 540px) {
+    font-size: 2.5rem;
   }
 `;

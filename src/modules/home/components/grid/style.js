@@ -6,4 +6,9 @@ export const Wrapper = styled.div`
   width: 100%;
   grid-gap: 26px;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  @media screen and (max-width: 767px) {
+    grid-gap: 16px;
+
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  }
 `;

@@ -33,13 +33,24 @@ export const Wrapper = styled.div`
       border: 1px solid rgba(34, 34, 34, 0.22);
     }
   }
+  @media screen and (max-width: 767px) {
+    gap: 8px;
+    .title {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
 `;
 export const Group = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  .price {
+    font-size: 14px;
+    ${overflowText};
+    width: calc(100% - 115px);
+  }
   .red-btn {
     font-size: 14px;
     padding: 4px 18px;
@@ -50,6 +61,9 @@ export const Avatar = styled.img`
   width: 100%;
   height: 200px;
   object-fit: contain;
+  @media screen and (max-width: 767px) {
+    height: 150px;
+  }
 `;
 
 export const Size = styled.div`
@@ -69,6 +83,12 @@ export const Size = styled.div`
     &:last-child {
       border-top-right-radius: 50px;
       border-bottom-right-radius: 50px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .red-btn {
+      font-size: 12px;
+      padding: 2px 0;
     }
   }
 `;

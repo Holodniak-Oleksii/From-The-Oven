@@ -6,6 +6,8 @@ import Footer from "./footer";
 import Header from "./header";
 
 import { Wrapper } from "./style";
+import { BottomNavigation } from "./bottom-navigation";
+import { LittleMobileOn } from "../helpers/responsive";
 
 export const LayoutContext = createContext();
 
@@ -15,6 +17,9 @@ const Layout = () => {
   return (
     <LayoutContext.Provider value={{ loading, setLoading }}>
       {loading && <Spinner />}
+      <LittleMobileOn>
+        <BottomNavigation />
+      </LittleMobileOn>
       <Header />
       <Wrapper>
         <Outlet />

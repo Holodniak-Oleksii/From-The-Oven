@@ -14,6 +14,7 @@ import {
 import logo from "@/assets/images/logo.png";
 import { IconMarket } from "@/components/icons";
 import useOnScreen from "@/helpers/useOnScreen";
+import { LittleDesktopOff, LittleMobileOff } from "@/helpers/responsive";
 
 const Header = () => {
   const ref = useRef();
@@ -25,19 +26,23 @@ const Header = () => {
         <HeaderContainer>
           <Flex>
             <Logo src={logo} alt='logo' />
-            <Navigations>
-              {navigations.map((item) => (
-                <Item onScreen={onScreen} key={item?.id}>
-                  <Link to={item?.path}>{item?.title}</Link>
-                </Item>
-              ))}
-            </Navigations>
+            <LittleMobileOff>
+              <Navigations>
+                {navigations.map((item) => (
+                  <Item onScreen={onScreen} key={item?.id}>
+                    <Link to={item?.path}>{item?.title}</Link>
+                  </Item>
+                ))}
+              </Navigations>
+            </LittleMobileOff>
           </Flex>
           <Flex>
             <NumberPhone onScreen={onScreen}>+380 89 56 44 432</NumberPhone>
-            <Market>
-              <IconMarket fill={"#d00e29"} />
-            </Market>
+            <LittleDesktopOff>
+              <Market>
+                <IconMarket fill={"#d00e29"} />
+              </Market>
+            </LittleDesktopOff>
           </Flex>
         </HeaderContainer>
       </Wrapper>

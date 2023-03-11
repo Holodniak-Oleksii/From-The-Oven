@@ -20,4 +20,11 @@ export const Avatar = styled.div`
     width: 30px;
     height: 30px;
   }
+  @media screen and (max-width: 1024px) {
+    padding: 20px;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 `;

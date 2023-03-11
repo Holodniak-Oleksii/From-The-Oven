@@ -5,6 +5,7 @@ import Container from "@/components/containers";
 import { Bubbles, RedButton } from "@/components/ui";
 
 import { Wrapper, Title, Slogan, Pizza, Background } from "./style";
+import { MobileOff } from "@/helpers/responsive";
 
 const Banner = () => {
   return (
@@ -18,11 +19,13 @@ const Banner = () => {
               Taste the tastiest pizzas from our pizzeria - tender dough,
               delicious sauces and fresh ingredients will surely please you!
             </p>
-            <RedButton>Order</RedButton>
+            <RedButton className='red-btn'>Order</RedButton>
           </Slogan>
-          <Pizza>
-            <ThreeDPizza />
-          </Pizza>
+          <MobileOff>
+            <Pizza>
+              <ThreeDPizza />
+            </Pizza>
+          </MobileOff>
         </Wrapper>
       </Container>
     </Background>
