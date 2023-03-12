@@ -53,7 +53,7 @@ export const Slogan = styled.div`
 
     .red-btn {
       font-size: 14px;
-      padding: 10px 20px;
+      padding: 6px 30px;
     }
   }
 `;

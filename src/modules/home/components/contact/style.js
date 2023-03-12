@@ -10,6 +10,13 @@ export const Wrapper = styled.div`
   margin: 20px auto 40px auto;
   ${flex_center}
   flex-direction: column;
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    margin: 10px auto 40px auto;
+  }
+  @media screen and (max-width: 540px) {
+    padding: 14px;
+  }
 `;
 
 export const Flex = styled.div`
@@ -18,6 +25,9 @@ export const Flex = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  @media screen and (max-width: 540px) {
+    gap: 10px;
+  }
 `;
 
 export const UserData = styled.div`
@@ -37,6 +47,19 @@ export const UserData = styled.div`
     line-height: 18px;
     font-weight: 300;
   }
+  @media screen and (max-width: 540px) {
+    gap: 2px;
+    h2 {
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+    span {
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 300;
+    }
+  }
 `;
 export const UserRaiding = styled.div`
   display: flex;
@@ -48,6 +71,12 @@ export const UserRaiding = styled.div`
     font-size: 14px;
     line-height: 18px;
     font-weight: 400;
+  }
+  @media screen and (max-width: 540px) {
+    span {
+      font-size: 12px;
+      line-height: 16px;
+    }
   }
 `;
 export const Description = styled.p`

@@ -50,6 +50,10 @@ export const Wrapper = styled.button`
     animation: ${ripple} 600ms linear;
     background-color: rgba(255, 255, 255, 0.7);
   }
+  @media screen and (max-width: 767px) {
+    padding: 6px 18px;
+    font-size: 14px;
+  }
 `;
 
 const Button = (props) => {

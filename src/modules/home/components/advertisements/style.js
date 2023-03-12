@@ -30,6 +30,27 @@ export const Wrapper = styled.div`
     font-style: italic;
     color: RGB(255, 193, 7);
   }
+  @media screen and (max-width: 1024px) {
+    height: 400px;
+    .title {
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 3rem;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    height: 300px;
+    .title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 2rem;
+    }
+  }
+  @media screen and (max-width: 540px) {
+    .title {
+      text-align: center;
+    }
+  }
 `;
 export const Flex = styled.div`
   display: flex;
@@ -37,6 +58,9 @@ export const Flex = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  @media screen and (max-width: 540px) {
+    justify-content: center;
+  }
 `;
 export const Pizza = styled.img`
   position: absolute;
@@ -55,6 +79,7 @@ export const Carousel = styled.img`
 export const Image = styled.div`
   position: relative;
   height: 100%;
+  aspect-ratio: 1 / 1;
 `;
 export const Banner = styled.div`
   display: flex;
@@ -62,4 +87,8 @@ export const Banner = styled.div`
   align-items: flex-start;
   flex-direction: column;
   gap: 20px;
+  @media screen and (max-width: 540px) {
+    justify-content: center;
+    align-items: center;
+  }
 `;

@@ -12,6 +12,15 @@ export const Flex = styled.div`
   justify-content: space-around;
   width: 100%;
   padding: 120px 20px;
+  @media screen and (max-width: 767px) {
+    padding: 60px 0px;
+  }
+  @media screen and (max-width: 540px) {
+    padding: 30px 0px;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    row-gap: 16px;
+  }
 `;
 
 export const Item = styled.div`
@@ -31,5 +40,21 @@ export const Item = styled.div`
     line-height: 24px;
     font-weight: 500;
     text-transform: uppercase;
+  }
+  @media screen and (max-width: 767px) {
+    font-size: 30px;
+    line-height: 34px;
+    span {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+  @media screen and (max-width: 540px) {
+    font-size: 26px;
+    line-height: 30px;
+    span {
+      font-size: 12px;
+      line-height: 16px;
+    }
   }
 `;

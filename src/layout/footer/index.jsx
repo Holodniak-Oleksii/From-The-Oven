@@ -1,10 +1,15 @@
 import React from "react";
-import GoogleMap from "google-map-react";
-import { Wrapper, Content, Item, Icon, Flex } from "./style";
 import { Link } from "react-router-dom";
-import Container from "@/components/containers";
-import { Bubbles } from "@/components/ui";
 
+import Container from "@/components/containers";
+import {
+  DesktopOff,
+  DesktopOn,
+  TabletOff,
+  TabletOn,
+  LittleMobileOn,
+  LittleMobileOff,
+} from "@/helpers/responsive";
 import {
   IconFacebook,
   IconInstagram,
@@ -16,18 +21,22 @@ import {
   IconPhone,
 } from "@/components/icons";
 
+import { Wrapper, Content, Item, Icon, Flex } from "./style";
+
 const Footer = () => {
   return (
     <Wrapper>
       <Container>
         <Content>
-          <iframe
-            src='https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d73741.61097832532!2d139.61587935922503!3d35.469430404569955!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1678551882768!5m2!1sru!2sua'
-            allowfullscreen=''
-            loading='lazy'
-            referrerpolicy='no-referrer-when-downgrade'
-            title='location'
-          />
+          <DesktopOff>
+            <iframe
+              src='https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d73741.61097832532!2d139.61587935922503!3d35.469430404569955!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1678551882768!5m2!1sru!2sua'
+              allowfullscreen=''
+              loading='lazy'
+              referrerpolicy='no-referrer-when-downgrade'
+              title='location'
+            />
+          </DesktopOff>
           <Item>
             <h2>Contact</h2>
             <ul>
@@ -78,9 +87,31 @@ const Footer = () => {
                 <IconYouTube />
               </Icon>
             </Flex>
-            <h2 className='mt'>Work time</h2>
-            <span>From 10 am to 8 pm</span>
+            <DesktopOff>
+              <h2 className='mt'>Work time</h2>
+              <span>From 10 am to 8 pm</span>
+            </DesktopOff>
+            <LittleMobileOff>
+              <TabletOn>
+                <h2 className='mt'>Work time</h2>
+                <span>From 10 am to 8 pm</span>
+              </TabletOn>
+            </LittleMobileOff>
           </Item>
+          <TabletOff>
+            <DesktopOn>
+              <Item>
+                <h2>Work time</h2>
+                <span>From 10 am to 8 pm</span>
+              </Item>
+            </DesktopOn>
+          </TabletOff>
+          <LittleMobileOn>
+            <Item>
+              <h2>Work time</h2>
+              <span>From 10 am to 8 pm</span>
+            </Item>
+          </LittleMobileOn>
         </Content>
       </Container>
     </Wrapper>

@@ -8,7 +8,10 @@ export const Wrapper = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   @media screen and (max-width: 767px) {
     grid-gap: 16px;
-
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  }
+  @media screen and (max-width: 540px) {
+    grid-gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
   }
 `;

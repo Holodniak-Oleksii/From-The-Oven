@@ -25,7 +25,6 @@ const Home = () => {
         <Bonus />
         <GrigPizza list={data} />
       </Container>
-
       <Advertisements />
       <Container>
         <Discount />

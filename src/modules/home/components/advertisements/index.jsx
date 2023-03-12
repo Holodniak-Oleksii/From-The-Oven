@@ -2,6 +2,7 @@ import React from "react";
 
 import Container from "@/components/containers";
 import { RedButton, Bubbles } from "@/components/ui";
+import { LittleMobileOff } from "@/helpers/responsive";
 
 import { Wrapper, Flex, Image, Carousel, Pizza, Banner } from "./style";
 
@@ -21,10 +22,12 @@ const Advertisements = () => {
             </h1>
             <RedButton>Order now</RedButton>
           </Banner>
-          <Image>
-            <Carousel src={carousel} alt='' />
-            <Pizza src={pizza} alt='' />
-          </Image>
+          <LittleMobileOff>
+            <Image>
+              <Carousel src={carousel} alt='' />
+              <Pizza src={pizza} alt='' />
+            </Image>
+          </LittleMobileOff>
         </Flex>
       </Container>
     </Wrapper>

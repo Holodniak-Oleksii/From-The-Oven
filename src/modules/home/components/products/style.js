@@ -2,10 +2,19 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, calc(100% / 3));
+  grid-template-columns: repeat(3, calc(100% / 3 - 9px));
   grid-gap: 12px;
   width: 70%;
   height: 100%;
+  @media screen and (max-width: 1280px) {
+    grid-template-columns: repeat(2, calc(100% / 2 - 9px));
+  }
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 540px) {
+    grid-template-columns: 100%;
+  }
 `;
 
 export const Card = styled.div`
@@ -20,6 +29,14 @@ export const Card = styled.div`
   img {
     max-width: 100px;
   }
+  @media screen and (max-width: 1500px) {
+    img {
+      max-width: 80px;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    padding: 8px;
+  }
 `;
 export const Flex = styled.div`
   display: flex;
@@ -31,6 +48,14 @@ export const Flex = styled.div`
     font-weight: 500;
     font-size: 16px;
   }
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    gap: 6px;
+
+    h3 {
+      font-size: 14px;
+    }
+  }
 `;
 
 export const Price = styled.div`
@@ -40,13 +65,17 @@ export const Price = styled.div`
   }
 `;
 export const Banner = styled.div`
-  min-width: 300px;
+  min-width: 260px;
   width: 30%;
   height: 100%;
   img {
     height: 100%;
     border-radius: 4px;
     width: 100%;
+  }
+  @media screen and (max-width: 1024px) {
+    min-width: 200px;
+    width: 20%;
   }
 `;
 export const Content = styled.div`
@@ -55,4 +84,10 @@ export const Content = styled.div`
   justify-content: space-between;
   gap: 10px;
   height: 540px;
+  @media screen and (max-width: 1280px) {
+    height: 580px;
+  }
+  @media screen and (max-width: 540px) {
+    height: 460px;
+  }
 `;

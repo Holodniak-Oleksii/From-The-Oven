@@ -40,6 +40,9 @@ export const Wrapper = styled.div`
       line-height: 24px;
     }
   }
+  @media screen and (max-width: 540px) {
+    padding: 8px;
+  }
 `;
 export const Group = styled.div`
   width: 100%;
@@ -53,7 +56,17 @@ export const Group = styled.div`
   }
   .red-btn {
     font-size: 14px;
-    padding: 4px 18px;
+    padding: 4px 18px !important;
+  }
+  @media screen and (max-width: 540px) {
+    .price {
+      font-size: 12px;
+      width: calc(100% - 80px);
+    }
+    .red-btn {
+      font-size: 12px;
+      padding: 4px 8px !important;
+    }
   }
 `;
 

@@ -3,7 +3,12 @@ import { Input } from "./style";
 
 const Index = ({ placeholder, halfBorder }) => {
   return (
-    <Input halfBorder={halfBorder} type='text' placeholder={placeholder} />
+    <Input
+      className='field'
+      halfBorder={halfBorder}
+      type='text'
+      placeholder={placeholder}
+    />
   );
 };
 
