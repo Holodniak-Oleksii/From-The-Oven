@@ -1,5 +1,6 @@
+import { useMediaQuery } from "react-responsive";
 import { createContext, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 import { Spinner } from "@/components/ui";
 import Footer from "./footer";
@@ -12,7 +13,10 @@ import { LittleMobileOn } from "../helpers/responsive";
 export const LayoutContext = createContext();
 
 const Layout = () => {
-  const [loading, setLoading] = useState(true);
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+  const isMobile = useMediaQuery({ minWidth: 768 });
+  const [loading, setLoading] = useState(isHome ? isMobile : false);
 
   return (
     <LayoutContext.Provider value={{ loading, setLoading }}>

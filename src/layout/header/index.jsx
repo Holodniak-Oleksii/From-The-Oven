@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { navigations } from "../data";
 import {
   Wrapper,
@@ -19,17 +19,19 @@ import { LittleDesktopOff, LittleMobileOff } from "@/helpers/responsive";
 const Header = () => {
   const ref = useRef();
   const onScreen = useOnScreen(ref, "72px");
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
   return (
     <>
       <div ref={ref} />
-      <Wrapper onScreen={onScreen}>
+      <Wrapper onScreen={isHome ? onScreen : false}>
         <HeaderContainer>
           <Flex>
             <Logo src={logo} alt='logo' />
             <LittleMobileOff>
               <Navigations>
                 {navigations.map((item) => (
-                  <Item onScreen={onScreen} key={item?.id}>
+                  <Item onScreen={isHome ? onScreen : false} key={item?.id}>
                     <Link to={item?.path}>{item?.title}</Link>
                   </Item>
                 ))}
@@ -37,7 +39,9 @@ const Header = () => {
             </LittleMobileOff>
           </Flex>
           <Flex>
-            <NumberPhone onScreen={onScreen}>+380 89 56 44 432</NumberPhone>
+            <NumberPhone onScreen={isHome ? onScreen : false}>
+              +380 89 56 44 432
+            </NumberPhone>
             <LittleDesktopOff>
               <Market>
                 <IconMarket fill={"#d00e29"} />

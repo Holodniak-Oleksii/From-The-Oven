@@ -18,6 +18,7 @@ import ProductsGrid from "./components/products/index";
 const Home = () => {
   const ref = useRef();
   useAnimation(ref);
+
   return (
     <Wrapper ref={ref}>
       <Banner />
