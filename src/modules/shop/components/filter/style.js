@@ -4,8 +4,9 @@ import { flex_center } from "@/assets/scss/global";
 export const Wrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 8px;
 `;
 
@@ -15,13 +16,22 @@ export const Category = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  max-width: 200px;
+`;
+
+export const Flex = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  .select-wrapper {
+    max-width: 320px;
+  }
 `;
 
 export const Field = styled.div`
   height: 42px;
   width: 100%;
-  max-width: 500px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -66,7 +76,7 @@ export const Chips = styled.button`
   background-color: #fff;
   z-index: 1;
   padding: 4px;
-  border: 2px solid #b1adac;
+  border: 1px solid #efeeee;
   .food-icon {
     width: 100%;
     height: 100%;
@@ -78,7 +88,7 @@ export const Chips = styled.button`
     left: 50%;
     opacity: 0;
     color: #505050;
-    border: 1px solid #dedada;
+    border: 1px solid #efeeee;
     font-size: 10px;
     white-space: nowrap;
     text-align: center;
@@ -92,8 +102,9 @@ export const Chips = styled.button`
   ${(props) =>
     props.active &&
     `
-    border: 2px solid #fc4734;
-    z-index: 2;
+      border: 2px solid #fc4734;
+      transform: scale(1.2);
+      z-index: 2;
   `}
 
   @media screen and (min-width: 1025px) {
@@ -101,7 +112,7 @@ export const Chips = styled.button`
     transition: all 0.2s ease-in-out;
 
     &:hover {
-      z-index: 2;
+      z-index: 3;
       transform: scale(1.2);
       .food-name {
         opacity: 1;
