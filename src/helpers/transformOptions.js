@@ -1,5 +1,5 @@
 const transformOptions = (arr) => {
-  let result = [{ id: 0, name: "", label: "All" }];
+  let result = [{ id: 0, value: "", label: "All" }];
   arr.forEach((el) => {
     result.push({
       id: el.id,

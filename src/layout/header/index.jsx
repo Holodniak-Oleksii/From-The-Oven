@@ -1,23 +1,23 @@
+import logo from "@/assets/images/logo.png";
+import { IconMarket } from "@/components/icons";
+import { LittleDesktopOff, LittleMobileOff } from "@/helpers/responsive";
+import useOnScreen from "@/helpers/useOnScreen";
 import React, { useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { navigations } from "../data";
 import {
-  Wrapper,
-  Navigations,
+  Flex,
   HeaderContainer,
   Item,
   Logo,
-  Flex,
   Market,
+  Navigations,
   NumberPhone,
+  Wrapper,
 } from "./style";
-import logo from "@/assets/images/logo.png";
-import { IconMarket } from "@/components/icons";
-import useOnScreen from "@/helpers/useOnScreen";
-import { LittleDesktopOff, LittleMobileOff } from "@/helpers/responsive";
 
 const Header = () => {
-  const ref = useRef();
+  const ref = useRef(null);
   const onScreen = useOnScreen(ref, "72px");
   const { pathname } = useLocation();
   const isHome = pathname === "/";

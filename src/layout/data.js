@@ -10,7 +10,7 @@ export const navigations = [
   {
     id: 1,
     title: "Shop",
-    path: "/shop",
+    path: "/shop?name=&ingredients=&categories=",
     icon: <IconShop />,
   },
   {

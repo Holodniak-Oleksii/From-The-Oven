@@ -3,25 +3,25 @@ import { Link } from "react-router-dom";
 
 import Container from "@/components/containers";
 import {
-  DesktopOff,
-  DesktopOn,
-  TabletOff,
-  TabletOn,
-  LittleMobileOn,
-  LittleMobileOff,
-} from "@/helpers/responsive";
-import {
+  IconEmail,
   IconFacebook,
   IconInstagram,
+  IconLocation,
+  IconPhone,
   IconPinterest,
   IconTwitter,
   IconYouTube,
-  IconLocation,
-  IconEmail,
-  IconPhone,
 } from "@/components/icons";
+import {
+  DesktopOff,
+  DesktopOn,
+  LittleMobileOff,
+  LittleMobileOn,
+  TabletOff,
+  TabletOn,
+} from "@/helpers/responsive";
 
-import { Wrapper, Content, Item, Icon, Flex } from "./style";
+import { Content, Flex, Icon, Item, Wrapper } from "./style";
 
 const Footer = () => {
   return (
@@ -64,7 +64,7 @@ const Footer = () => {
                 <Link to={"/contact-us"}>Contact Us</Link>
               </li>
               <li>
-                <Link to={"/shop"}>Shop</Link>
+                <Link to={"/shop?name=&ingredients=&categories="}>Shop</Link>
               </li>
             </ul>
           </Item>

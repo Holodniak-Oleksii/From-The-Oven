@@ -25,12 +25,10 @@ class Pizza {
       console.error(error);
     }
   }
-  async getSearch(name = "", ingredients = [], categories = "") {
+  async getSearch(name = "", ingredients = "", categories = "") {
     try {
       const { data } = await axios.get(
-        `/${this.addition}s/search?name=${name}&ingredients=${ingredients.join(
-          ","
-        )}&categories=${categories}`
+        `/${this.addition}s/search?name=${name}&ingredients=${ingredients}&categories=${categories}`
       );
       return data;
     } catch (error) {

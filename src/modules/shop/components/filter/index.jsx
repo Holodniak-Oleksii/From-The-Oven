@@ -9,7 +9,7 @@ const Filter = ({ setFilter, filter, sort }) => {
     if (filter.ingredients.includes(item.name)) {
       setFilter((prev) => ({
         ...prev,
-        goods: prev.ingredients.filter(
+        ingredients: prev.ingredients.filter(
           (ingredient) => ingredient !== item.name
         ),
       }));
@@ -32,11 +32,22 @@ const Filter = ({ setFilter, filter, sort }) => {
             type='search'
             className='search-filed'
             placeholder='Search...'
+            value={filter.query}
+            onChange={(e) =>
+              setFilter((prev) => ({ ...prev, query: e.target.value }))
+            }
           />
         </Field>
         <SelectField
           options={transformOptions(sort.categories)}
           placeholder={"Category"}
+          value={filter.categories}
+          setValue={(value) =>
+            setFilter((prev) => ({
+              ...prev,
+              categories: value,
+            }))
+          }
         />
       </Flex>
       <Category>

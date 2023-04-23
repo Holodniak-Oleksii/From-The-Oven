@@ -5,6 +5,7 @@ import { Icon, Wrapper, selectStyles } from "./style";
 const SelectField = ({
   options,
   placeholder,
+  value,
   disabled,
   defaultValue,
   setValue,
@@ -17,10 +18,11 @@ const SelectField = ({
       <Select
         className={disabled ? "select-custom" : ""}
         placeholder={placeholder}
+        value={options.filter((option) => option.value === value)[0]}
         options={options}
-        // onChange={(value) => {
-        //   setValue(value);
-        // }}
+        onChange={({ value }) => {
+          setValue(value);
+        }}
         defaultValue={defaultValue ? defaultValue : options[0]}
         styles={selectStyles}
       />

@@ -43,6 +43,11 @@ export const selectStyles = {
     caretColor: "#fc4734",
     color: "#191919",
   }),
+  input: (styles) => ({
+    ...styles,
+    padding: 0,
+    margin: 0,
+  }),
   option: (styles, state) => ({
     ...styles,
     transition: "all 0.3s ease",
@@ -54,13 +59,11 @@ export const selectStyles = {
     "&:hover": {
       background:
         "linear-gradient(90deg, rgba(255, 3, 3, 0.5) 0%, rgba(247, 186, 31, 0.8) 100%)",
-      borderRadius: "2px",
       color: "#fff",
     },
   }),
   noOptionsMessage: (styles) => ({
     ...styles,
-    borderRadius: "2px",
     color: "#fc4734",
   }),
 };

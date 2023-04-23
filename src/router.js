@@ -1,10 +1,10 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "@/layout";
+import ContactUs from "@/modules/contact-us";
 import ErrorPage from "@/modules/error";
 import Home from "@/modules/home";
 import Order from "@/modules/order";
 import Shop from "@/modules/shop";
-import ContactUs from "@/modules/contact-us";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const Router = () => {
   const router = createBrowserRouter([
