@@ -10,7 +10,7 @@ class Pizza {
       const { data } = await axios.get(
         `/${this.addition}/ingredients?limit=${limit}`
       );
-      return data;
+      return data?.result;
     } catch (error) {
       console.error(error);
     }
@@ -20,7 +20,7 @@ class Pizza {
       const { data } = await axios.get(
         `/${this.addition}/categories?limit=${limit}`
       );
-      return data;
+      return data?.result;
     } catch (error) {
       console.error(error);
     }

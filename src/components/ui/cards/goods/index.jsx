@@ -1,31 +1,38 @@
 import React, { useState } from "react";
 import RedButton from "../../buttons/red";
-import { Wrapper, Avatar, Size, Group } from "./style";
+import { Avatar, Group, Size, Wrapper } from "./style";
 
 const Card = ({ item }) => {
-  const [activeSize, setSelectedSize] = useState(40);
+  const [activeSize, setSelectedSize] = useState(item?.sizeLarge);
   return (
-    <Wrapper>
+    <Wrapper className='product-card'>
       <Avatar src={item?.image} alt='pizza' />
-      <h3 className='title'>{item?.title}</h3>
+      <h3 className='title'>{item?.name}</h3>
       <Size>
         <RedButton
-          outline={activeSize === 40}
-          onClick={() => setSelectedSize(30)}
+          outline={activeSize !== item?.sizeSmall}
+          onClick={() => setSelectedSize(item?.sizeSmall)}
           className='red-btn'
         >
-          30sm
+          {item?.sizeSmall}sm
         </RedButton>
         <RedButton
-          outline={activeSize === 30}
-          onClick={() => setSelectedSize(40)}
+          outline={activeSize !== item?.sizeLarge}
+          onClick={() => setSelectedSize(item?.sizeLarge)}
           className='red-btn'
         >
-          40sm
+          {item?.sizeLarge}sm
         </RedButton>
       </Size>
       <Group>
-        <span className='price'>{item.price.toFixed(2)}$</span>
+        <span className='price'>
+          {activeSize === item?.sizeLarge
+            ? item?.priceLarge
+            : activeSize === item?.priceMedium
+            ? item?.priceMedium
+            : item?.priceSmall}
+          $
+        </span>
         <RedButton outline className='red-btn'>
           Order now
         </RedButton>

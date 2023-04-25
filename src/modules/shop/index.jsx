@@ -5,7 +5,8 @@ import { ProductCard } from "@/components/ui";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Filter from "./components/filter/index";
-import { Grid, Wrapper } from "./style";
+import NotFound from "./components/not-found";
+import { Flex, Wrapper } from "./style";
 
 const Shop = () => {
   const [params, setParams] = useSearchParams();
@@ -63,14 +64,18 @@ const Shop = () => {
   return (
     <Container isMarginForHeader>
       <Wrapper>
-        {!sort.ingredients.length || !sort.categories.length ? null : (
+        {(sort.ingredients.length || sort.categories.length) && (
+          <Filter setFilter={setFilter} filter={filter} sort={sort} />
+        )}
+        {!pizzas.result?.length ? (
+          <NotFound />
+        ) : (
           <>
-            <Filter setFilter={setFilter} filter={filter} sort={sort} />
-            <Grid>
-              {pizzas.map((item) => (
+            <Flex>
+              {pizzas.result.map((item) => (
                 <ProductCard item={item} key={item?.id} />
               ))}
-            </Grid>
+            </Flex>
           </>
         )}
       </Wrapper>

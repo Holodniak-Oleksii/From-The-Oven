@@ -9,18 +9,30 @@ export const Wrapper = styled.div`
   margin: 100px 0 50px 0;
 `;
 
-export const Grid = styled.div`
-  display: grid;
+export const Flex = styled.div`
+  display: flex;
+  align-content: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
   padding: 40px 0 20px 0;
   width: 100%;
-  grid-gap: 26px;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-  @media screen and (max-width: 767px) {
-    grid-gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-  }
-  @media screen and (max-width: 540px) {
-    grid-gap: 12px;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: 20px;
+  .product-card {
+    width: calc(100% / 5 - 16px);
+    @media screen and (max-width: 1440px) {
+      width: calc(100% / 4 - 15px);
+    }
+    @media screen and (max-width: 1024px) {
+      width: calc(100% / 3 - 14px);
+    }
+    @media screen and (max-width: 767px) {
+      width: calc(100% / 2 - 12px);
+    }
+    @media screen and (max-width: 540px) {
+      width: calc(100% / 2 - 10px);
+    }
+    @media screen and (max-width: 420px) {
+      width: 100%;
+    }
   }
 `;
