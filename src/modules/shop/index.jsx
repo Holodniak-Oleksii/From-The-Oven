@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Pizza from "@/api/pizza";
 import Container from "@/components/containers";
-import { ProductCard } from "@/components/ui";
+import Paginate from "@/components/paginate";
+import { ProductCard, ProductCardLoader } from "@/components/ui";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Filter from "./components/filter/index";
@@ -19,7 +20,7 @@ const Shop = () => {
   });
 
   const [sort, setSort] = useState({ ingredients: [], categories: [] });
-  const [pizzas, setPizzas] = useState([]);
+  const [pizzas, setPizzas] = useState({ loading: true, data: [] });
 
   useEffect(() => {
     const get = async () => {
@@ -33,6 +34,8 @@ const Shop = () => {
 
   useEffect(() => {
     const get = async () => {
+      setPizzas((prev) => ({ ...prev, loading: true }));
+
       setParams({
         name: filter.query,
         ingredients: filter.ingredients.join(","),
@@ -45,8 +48,7 @@ const Shop = () => {
         filter.ingredients?.join(",") || "",
         filter.categories || ""
       );
-      setPizzas(pizza);
-      console.log("🚀 ~ file: index.jsx:18 ~ Shop ~ pizzas:", pizzas);
+      setPizzas({ data: pizza, loading: false });
     };
     get();
   }, [filter.categories, filter.ingredients, filter.query]);
@@ -67,17 +69,28 @@ const Shop = () => {
         {(sort.ingredients.length || sort.categories.length) && (
           <Filter setFilter={setFilter} filter={filter} sort={sort} />
         )}
-        {!pizzas.result?.length ? (
-          <NotFound />
+        {pizzas.loading ? (
+          <Flex>
+            {[...Array(10)].map((x, i) => (
+              <ProductCardLoader key={i} />
+            ))}
+          </Flex>
         ) : (
           <>
-            <Flex>
-              {pizzas.result.map((item) => (
-                <ProductCard item={item} key={item?.id} />
-              ))}
-            </Flex>
+            {!pizzas.data.result?.length ? (
+              <NotFound />
+            ) : (
+              <>
+                <Flex>
+                  {pizzas.data.result.map((item) => (
+                    <ProductCard item={item} key={item?.id} />
+                  ))}
+                </Flex>
+              </>
+            )}
           </>
         )}
+        <Paginate pageCount={Math.ceil(pizzas.data.total / 5)} />
       </Wrapper>
     </Container>
   );

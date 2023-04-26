@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { flex_center } from "@/assets/scss/global";
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -26,6 +26,12 @@ export const Flex = styled.div`
   width: 100%;
   .select-wrapper {
     max-width: 320px;
+  }
+  @media screen and (max-width: 540px) {
+    flex-direction: column;
+    .select-wrapper {
+      max-width: 100%;
+    }
   }
 `;
 

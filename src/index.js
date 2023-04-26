@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Router from "./router";
+import "react-loading-skeleton/dist/skeleton.css";
 import "./assets/scss/index.scss";
+import Router from "./router";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

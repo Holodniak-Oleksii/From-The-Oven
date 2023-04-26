@@ -7,6 +7,9 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin: 100px 0 50px 0;
+  a {
+    color: #000;
+  }
 `;
 
 export const Flex = styled.div`

@@ -1,6 +1,5 @@
+import { flex_center, overflowText } from "@/assets/scss/global";
 import styled from "styled-components";
-import { flex_center } from "@/assets/scss/global";
-import { overflowText } from "@/assets/scss/global";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -43,6 +42,15 @@ export const Wrapper = styled.div`
   @media screen and (max-width: 540px) {
     padding: 8px;
   }
+  & > span {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    @media screen and (max-width: 767px) {
+      height: 150px;
+    }
+  }
 `;
 export const Group = styled.div`
   width: 100%;
@@ -84,6 +92,9 @@ export const Size = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  & > span {
+    width: 50%;
+  }
   .red-btn {
     font-size: 14px;
     width: 100%;
