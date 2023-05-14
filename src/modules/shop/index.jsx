@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Pizza from "@/api/pizza";
 import Container from "@/components/containers";
-import Paginate from "@/components/paginate";
 import { ProductCard, ProductCardLoader } from "@/components/ui";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -66,10 +65,10 @@ const Shop = () => {
   return (
     <Container isMarginForHeader>
       <Wrapper>
-        {(sort.ingredients.length || sort.categories.length) && (
+        {(!!sort.ingredients.length || !!sort.categories.length) && (
           <Filter setFilter={setFilter} filter={filter} sort={sort} />
         )}
-        {pizzas.loading ? (
+        {!!pizzas.loading ? (
           <Flex>
             {[...Array(10)].map((x, i) => (
               <ProductCardLoader key={i} />
@@ -90,7 +89,7 @@ const Shop = () => {
             )}
           </>
         )}
-        <Paginate pageCount={Math.ceil(pizzas.data.total / 5)} />
+        {/* <Paginate pageCount={Math.ceil(pizzas.data.total / 5)} /> */}
       </Wrapper>
     </Container>
   );

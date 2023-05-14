@@ -21,10 +21,12 @@ const Header = () => {
   const onScreen = useOnScreen(ref, "72px");
   const { pathname } = useLocation();
   const isHome = pathname === "/";
+  const isTransparent = pathname === "/" || pathname === "/contact-us";
+
   return (
     <>
       <div ref={ref} />
-      <Wrapper onScreen={isHome ? onScreen : false}>
+      <Wrapper onScreen={isTransparent ? onScreen : false}>
         <HeaderContainer>
           <Flex>
             <Logo src={logo} alt='logo' />

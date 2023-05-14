@@ -1,19 +1,19 @@
 import React, { useRef } from "react";
 
-import Banner from "./components/banner";
-import useAnimation from "@/helpers/useAnimation";
-import GrigPizza from "./components/grid";
-import Bonus from "./components/bonus";
 import Container from "@/components/containers";
+import useAnimation from "@/helpers/useAnimation";
 import Advertisements from "./components/advertisements";
-import Discount from "./components/discount";
-import Count from "./components/count";
+import Banner from "./components/banner";
+import Bonus from "./components/bonus";
 import Contact from "./components/contact";
+import Count from "./components/count";
+import Discount from "./components/discount";
+import GrigPizza from "./components/grid";
 
 import { Wrapper } from "./style";
 
-import { counter, data, dataAction, feedback } from "./data";
 import ProductsGrid from "./components/products/index";
+import { counter, data, dataAction, feedback } from "./data";
 
 const Home = () => {
   const ref = useRef();
