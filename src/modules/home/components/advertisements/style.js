@@ -1,16 +1,4 @@
-import styled, { keyframes } from "styled-components";
-
-const rotate = keyframes`
-    0%{
-    transform: rotate(0deg)
-    }
-    50%{
-        transform: rotate(180deg)
-    }
-    100%{
-        transform: rotate(360deg)
-    }
-`;
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -61,25 +49,6 @@ export const Flex = styled.div`
   @media screen and (max-width: 540px) {
     justify-content: center;
   }
-`;
-export const Pizza = styled.img`
-  position: absolute;
-  height: 70%;
-  width: 70%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-export const Carousel = styled.img`
-  transition: all 0.4s linear;
-  animation: ${rotate} 25s infinite linear;
-  height: 100%;
-  width: 100%;
-`;
-export const Image = styled.div`
-  position: relative;
-  height: 100%;
-  aspect-ratio: 1 / 1;
 `;
 export const Banner = styled.div`
   display: flex;

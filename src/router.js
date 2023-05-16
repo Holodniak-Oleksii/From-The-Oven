@@ -5,6 +5,7 @@ import Home from "@/modules/home";
 import Order from "@/modules/order";
 import Shop from "@/modules/shop";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Details from "./modules/details";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const Router = () => {
         {
           path: "/shop",
           element: <Shop />,
+        },
+        {
+          path: "/pizza/:name",
+          element: <Details />,
         },
         {
           path: "/contact-us",

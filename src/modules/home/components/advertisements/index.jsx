@@ -1,13 +1,11 @@
 import React from "react";
 
 import Container from "@/components/containers";
-import { RedButton, Bubbles } from "@/components/ui";
+import { Bubbles, RedButton } from "@/components/ui";
 import { LittleMobileOff } from "@/helpers/responsive";
 
-import { Wrapper, Flex, Image, Carousel, Pizza, Banner } from "./style";
-
-import pizza from "@/assets/images/pizza/2.png";
-import carousel from "@/assets/images/carousel.png";
+import PizzaCarousel from "@/components/carousel";
+import { Banner, Flex, Wrapper } from "./style";
 
 const Advertisements = () => {
   return (
@@ -23,10 +21,7 @@ const Advertisements = () => {
             <RedButton>Order now</RedButton>
           </Banner>
           <LittleMobileOff>
-            <Image>
-              <Carousel src={carousel} alt='' />
-              <Pizza src={pizza} alt='' />
-            </Image>
+            <PizzaCarousel />
           </LittleMobileOff>
         </Flex>
       </Container>

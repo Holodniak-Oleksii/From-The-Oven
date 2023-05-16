@@ -2,13 +2,13 @@ import React from "react";
 
 import { ProductCard } from "@/components/ui";
 
-import { Wrapper } from "./style";
 import {
   LittleMobileOff,
   LittleMobileOn,
   MobileOff,
   MobileOn,
 } from "@/helpers/responsive";
+import { Wrapper } from "./style";
 
 const GrigPizza = ({ list }) => {
   return (
