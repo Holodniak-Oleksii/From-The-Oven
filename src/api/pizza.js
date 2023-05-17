@@ -15,6 +15,18 @@ class Pizza {
       console.error(error);
     }
   }
+  async getSinglePizza(id) {
+    try {
+      if (id) {
+        const { data } = await axios.get(`/${this.addition}s/${id}`);
+        return data?.result;
+      } else {
+        throw new Error("Pizza not found");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
   async getCategories(limit = "") {
     try {
       const { data } = await axios.get(

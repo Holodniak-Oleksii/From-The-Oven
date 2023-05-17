@@ -1,10 +1,15 @@
+import Pizza from "@/api/pizza";
 import carousel from "@/assets/images/carousel2.png";
 import PizzaCarousel from "@/components/carousel";
+
 import Container from "@/components/containers";
-import React from "react";
+import { RedButton } from "@/components/ui";
+import Spinner from "@/components/ui/loaders/spinner";
+import React, { useEffect, useState } from "react";
 import { AiOutlineDollarCircle } from "react-icons/ai";
 import { IoIosResize } from "react-icons/io";
 import { TbWeight } from "react-icons/tb";
+import { useParams } from "react-router-dom";
 import {
   Description,
   Information,
@@ -18,53 +23,66 @@ import {
 } from "./style";
 
 const Details = () => {
+  const { id } = useParams();
+  const [details, setDetails] = useState({ data: {}, loading: true });
+  useEffect(() => {
+    const get = async () => {
+      const api = new Pizza();
+      const pizza = await api.getSinglePizza(id);
+      setDetails({ data: pizza[0], loading: false });
+    };
+    get();
+  }, [id]);
   return (
     <Container>
       <Wrapper>
-        <PizzaCarousel carouselImg={carousel} />
-        <Information>
-          <Title>Havail Pizza</Title>
-          <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </Description>
-          <Description>Ingredients: </Description>
-          <List>
-            <Ingredient>meal</Ingredient>
-            <Ingredient>potato</Ingredient>
-          </List>
-          <Table>
-            <Item>
-              <Text className='head'>
-                <span>Size </span>
-                <IoIosResize />
-              </Text>
-              <Text>40sm</Text>
-              <Text>30sm</Text>
-            </Item>
-            <Item>
-              <Text className='head'>
-                <span>Weight </span>
-                <TbWeight />
-              </Text>
-              <Text>40sm</Text>
-              <Text>30sm</Text>
-            </Item>
-            <Item>
-              <Text className='head'>
-                <span>Price </span>
-                <AiOutlineDollarCircle />
-              </Text>
-              <Text>40sm</Text>
-              <Text>30sm</Text>
-            </Item>
-          </Table>
-        </Information>
+        {details.loading ? (
+          <Spinner />
+        ) : (
+          <>
+            <PizzaCarousel
+              pizzaImg={details.data?.image}
+              carouselImg={carousel}
+            />
+            <Information>
+              <Title>{details.data?.name}</Title>
+              <Description>{details.data?.description}</Description>
+              <Description>Ingredients: </Description>
+              <List>
+                {details.data?.ingredients?.map((item, id) => (
+                  <Ingredient key={id}>{item}</Ingredient>
+                ))}
+              </List>
+              <Table>
+                <Item>
+                  <Text className='head'>
+                    <span>Size </span>
+                    <IoIosResize />
+                  </Text>
+                  <Text>{details.data.sizeSmall}</Text>
+                  <Text>{details.data.sizeLarge}</Text>
+                </Item>
+                <Item>
+                  <Text className='head'>
+                    <span>Weight </span>
+                    <TbWeight />
+                  </Text>
+                  <Text>{details.data.massSmall}</Text>
+                  <Text>{details.data.massLarge}</Text>
+                </Item>
+                <Item>
+                  <Text className='head'>
+                    <span>Price </span>
+                    <AiOutlineDollarCircle />
+                  </Text>
+                  <Text>{details.data.priceSmall}$</Text>
+                  <Text>{details.data.priceLarge}$</Text>
+                </Item>
+              </Table>
+              <RedButton className='order-list'>Add to order list</RedButton>
+            </Information>
+          </>
+        )}
       </Wrapper>
     </Container>
   );

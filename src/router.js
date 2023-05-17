@@ -27,7 +27,7 @@ const Router = () => {
           element: <Shop />,
         },
         {
-          path: "/pizza/:name",
+          path: "/pizza/:id",
           element: <Details />,
         },
         {

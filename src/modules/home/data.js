@@ -181,24 +181,6 @@ export const data = [
     priceMedium: 22.65,
     priceLarge: 56.38,
   },
-  {
-    id: 0,
-    name: "Pepperoni",
-    description:
-      "A delicious pizza topped with tomato sauce, mozzarella cheese, and spicy pepperoni slices.",
-    image: "https://artgallery-bucket.s3.eu-central-1.amazonaws.com/1.png",
-    ingredients: ["Tomatoes", "Pepperoni", "Black Olives"],
-    categories: ["Meat Lovers"],
-    massSmall: 460,
-    massMedium: 975,
-    massLarge: 1478,
-    sizeSmall: 25,
-    sizeMedium: 35,
-    sizeLarge: 45,
-    priceSmall: 15.39,
-    priceMedium: 22.65,
-    priceLarge: 56.38,
-  },
 ];
 export const counter = [
   {

@@ -41,6 +41,11 @@ export const Information = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 6px;
+  .order-list {
+    margin-top: 10px;
+    font-size: 16px;
+    padding: 8px 22px;
+  }
   @media screen and (max-width: 1024px) {
     width: 100%;
   }

@@ -1,11 +1,19 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import RedButton from "../../buttons/red";
 import { Avatar, Group, Size, Wrapper } from "./style";
 
 const Card = ({ item }) => {
   const [activeSize, setSelectedSize] = useState(item?.sizeLarge);
+  const push = useNavigate();
+  const handlerDetails = () => {
+    push(`/pizza/${item.id}`);
+  };
+  const handlerOrder = (e) => {
+    e.stopPropagation();
+  };
   return (
-    <Wrapper className='product-card'>
+    <Wrapper className='product-card' onClick={handlerDetails}>
       <Avatar src={item?.image} alt='pizza' />
       <h3 className='title'>{item?.name}</h3>
       <Size>
@@ -33,7 +41,7 @@ const Card = ({ item }) => {
             : item?.priceSmall}
           $
         </span>
-        <RedButton outline className='red-btn'>
+        <RedButton outline className='red-btn' onClick={handlerOrder}>
           Order now
         </RedButton>
       </Group>

@@ -41,6 +41,9 @@ body {
   -webkit-text-size-adjust: 100%;
   font-style: normal;
   font-weight: 400;
+  &.ReactModal__Body--open {
+    overflow: hidden !important;
+  }
 }
 html {
   scroll-behavior: smooth;
@@ -159,4 +162,28 @@ a {
 
 img {
   pointer-events: none;
+}
+
+.ReactModal__Overlay {
+  background: rgba(0, 0, 0, 0) !important;
+  z-index: 9999;
+  width: 100vw;
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ReactModal__Content {
+  padding: 0 !important;
+  position: static !important;
+  background: none !important;
+  border: none !important;
+  overflow: visible !important;
+  margin: auto;
+  max-width: 100vw;
+  height: 100% !important;
+  width: 100% !important;
 }
