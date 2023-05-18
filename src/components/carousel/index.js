@@ -34,10 +34,10 @@ const Image = styled.div`
   aspect-ratio: 1 / 1;
 `;
 
-const PizzaCarousel = ({ carouselImg, pizzaImg }) => {
+const PizzaCarousel = ({ carouselImg, pizzaImg, withoutCarousel }) => {
   return (
     <Image className='carousel-pizza'>
-      <Carousel src={carouselImg || carousel} alt='' />
+      {!withoutCarousel && <Carousel src={carouselImg || carousel} alt='' />}
       <Pizza src={pizzaImg || pizza} alt='' />
     </Image>
   );

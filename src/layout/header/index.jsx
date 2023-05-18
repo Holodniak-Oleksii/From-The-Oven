@@ -1,8 +1,9 @@
 import logo from "@/assets/images/logo.png";
 import { IconMarket } from "@/components/icons";
 import OrderModal from "@/components/modals/orders";
-import { LittleDesktopOff, LittleMobileOff } from "@/helpers/responsive";
+import { LittleMobileOff } from "@/helpers/responsive";
 import useOnScreen from "@/helpers/useOnScreen";
+import { useBasket } from "@/store/selectors/index";
 import React, { useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { navigations } from "../data";
@@ -24,6 +25,7 @@ const Header = () => {
   const isHome = pathname === "/";
   const isTransparent = pathname === "/" || pathname === "/contact-us";
   const [openOrder, setOpenOrder] = useState(false);
+  const { amount } = useBasket();
   return (
     <>
       <div ref={ref} />
@@ -45,11 +47,16 @@ const Header = () => {
             <NumberPhone onScreen={isHome ? onScreen : false}>
               +380 89 56 44 432
             </NumberPhone>
-            <LittleDesktopOff>
-              <Market onClick={() => setOpenOrder(true)}>
+            <LittleMobileOff>
+              <Market
+                onClick={() => {
+                  if (amount) setOpenOrder(true);
+                }}
+                amount={amount}
+              >
                 <IconMarket fill={"#d00e29"} />
               </Market>
-            </LittleDesktopOff>
+            </LittleMobileOff>
           </Flex>
         </HeaderContainer>
       </Wrapper>

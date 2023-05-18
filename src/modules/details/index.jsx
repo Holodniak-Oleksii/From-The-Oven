@@ -1,10 +1,10 @@
 import Pizza from "@/api/pizza";
-import carousel from "@/assets/images/carousel2.png";
 import PizzaCarousel from "@/components/carousel";
 
 import Container from "@/components/containers";
 import { RedButton } from "@/components/ui";
 import Spinner from "@/components/ui/loaders/spinner";
+import { addProductsAction } from "@/store/actions/basket";
 import React, { useEffect, useState } from "react";
 import { AiOutlineDollarCircle } from "react-icons/ai";
 import { IoIosResize } from "react-icons/io";
@@ -33,6 +33,16 @@ const Details = () => {
     };
     get();
   }, [id]);
+  const handlerOrder = (e) => {
+    const product = {
+      id: details.data.id,
+      image: details.data.image,
+      name: details.data.name,
+      size: details.data.sizeSmall,
+      price: details.data.priceSmall,
+    };
+    addProductsAction(product);
+  };
   return (
     <Container>
       <Wrapper>
@@ -40,10 +50,7 @@ const Details = () => {
           <Spinner />
         ) : (
           <>
-            <PizzaCarousel
-              pizzaImg={details.data?.image}
-              carouselImg={carousel}
-            />
+            <PizzaCarousel pizzaImg={details.data?.image} withoutCarousel />
             <Information>
               <Title>{details.data?.name}</Title>
               <Description>{details.data?.description}</Description>
@@ -79,7 +86,9 @@ const Details = () => {
                   <Text>{details.data.priceLarge}$</Text>
                 </Item>
               </Table>
-              <RedButton className='order-list'>Add to order list</RedButton>
+              <RedButton className='order-list' onClick={handlerOrder}>
+                Add to order list
+              </RedButton>
             </Information>
           </>
         )}

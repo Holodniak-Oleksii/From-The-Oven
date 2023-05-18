@@ -1,5 +1,6 @@
 import { flex_center } from "@/assets/scss/global";
-import React, { useState } from "react";
+import { useBasket } from "@/store/selectors/index";
+import React, { useEffect, useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import Modal from "react-modal";
 import styled from "styled-components";
@@ -36,7 +37,13 @@ export const TO_ORDER = "to-order";
 
 const OrderModal = ({ close, open }) => {
   const [step, setStep] = useState(ORDER_LIST);
+  const { amount } = useBasket();
 
+  useEffect(() => {
+    if (!amount) {
+      close();
+    }
+  }, [amount]);
   return (
     <Modal
       isOpen={open}
@@ -48,7 +55,7 @@ const OrderModal = ({ close, open }) => {
         <Column>
           <Container onClick={(e) => e.stopPropagation()}>
             <Head>
-              {step === ORDER_LIST && <Title>1 Products</Title>}
+              {step === ORDER_LIST && <Title>{amount} Products</Title>}
               {step === TO_ORDER && <Title>Completing your order</Title>}
               <CloseButton onClick={close}>
                 <IoCloseOutline color='#191919' fill />

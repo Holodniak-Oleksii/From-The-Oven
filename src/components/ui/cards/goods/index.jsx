@@ -1,3 +1,4 @@
+import { addProductsAction } from "@/store/actions/basket";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RedButton from "../../buttons/red";
@@ -9,8 +10,18 @@ const Card = ({ item }) => {
   const handlerDetails = () => {
     push(`/pizza/${item.id}`);
   };
+
   const handlerOrder = (e) => {
     e.stopPropagation();
+    const product = {
+      id: item.id,
+      image: item.image,
+      name: item.name,
+      size: activeSize,
+      price:
+        activeSize === item?.sizeLarge ? item?.priceLarge : item?.priceSmall,
+    };
+    addProductsAction(product);
   };
   return (
     <Wrapper className='product-card' onClick={handlerDetails}>
@@ -19,14 +30,20 @@ const Card = ({ item }) => {
       <Size>
         <RedButton
           outline={activeSize !== item?.sizeSmall}
-          onClick={() => setSelectedSize(item?.sizeSmall)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setSelectedSize(item?.sizeSmall);
+          }}
           className='red-btn'
         >
           {item?.sizeSmall}sm
         </RedButton>
         <RedButton
           outline={activeSize !== item?.sizeLarge}
-          onClick={() => setSelectedSize(item?.sizeLarge)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setSelectedSize(item?.sizeLarge);
+          }}
           className='red-btn'
         >
           {item?.sizeLarge}sm

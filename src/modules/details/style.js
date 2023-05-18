@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   gap: 16px;
   .carousel-pizza {
-    width: 50%;
+    width: 40%;
     overflow: hidden;
     max-width: 600px;
     max-height: 600px;
@@ -36,7 +36,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Information = styled.div`
-  width: 50%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

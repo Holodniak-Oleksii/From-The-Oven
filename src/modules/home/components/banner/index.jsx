@@ -1,11 +1,11 @@
 import React from "react";
 
-import ThreeDPizza from "../3d";
 import Container from "@/components/containers";
 import { Bubbles, RedButton } from "@/components/ui";
+import ThreeDPizza from "../3d";
 
-import { Wrapper, Title, Slogan, Pizza, Background } from "./style";
 import { MobileOff } from "@/helpers/responsive";
+import { Background, Pizza, Slogan, Title, Wrapper } from "./style";
 
 const Banner = () => {
   return (

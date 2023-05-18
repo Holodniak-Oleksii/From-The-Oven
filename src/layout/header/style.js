@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import { flex_center } from "@/assets/scss/global";
 import { MainWrapper } from "@/components/containers";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.header`
   height: 72px;
@@ -82,11 +83,38 @@ export const Market = styled.button`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
   svg {
     transition: all 0.3s ease;
     height: 30px;
     width: auto;
+    ${({ amount }) =>
+      !amount &&
+      css`
+        filter: grayscale(100%);
+      `}
   }
+  ${({ amount }) =>
+    amount &&
+    css`
+      &::before {
+        content: "${amount}";
+        position: absolute;
+        top: 20px;
+        z-index: 2;
+        right: -2px;
+        font-size: 10px;
+        line-height: 10px;
+        color: #fff;
+        background-color: rgb(208, 14, 41);
+        min-width: 16px;
+        min-height: 16px;
+        padding: 3px;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        ${flex_center}
+      }
+    `}
 `;
 export const NumberPhone = styled.div`
   ${(props) =>

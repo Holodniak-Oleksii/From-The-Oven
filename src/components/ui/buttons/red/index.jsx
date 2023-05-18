@@ -1,6 +1,6 @@
+import { createRipple } from "@/helpers/createRipple";
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { createRipple } from "@/helpers/createRipple";
 
 const ripple = keyframes`
   to {
@@ -61,7 +61,7 @@ const Button = (props) => {
     <Wrapper
       {...props}
       onClick={(e) => {
-        props.onClick?.();
+        props.onClick?.(e);
         createRipple(e);
       }}
       type={props.button || "button"}
