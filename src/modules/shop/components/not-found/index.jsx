@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 `;
 
 const NotFound = () => {
-  return <Wrapper>No pizzas were found for your request</Wrapper>;
+  return <Wrapper>No pizzas not found</Wrapper>;
 };
 
 export default NotFound;

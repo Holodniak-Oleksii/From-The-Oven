@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Input = styled.input`
   background-color: rgba(255, 255, 255, 0.311);
@@ -17,4 +17,24 @@ export const Input = styled.input`
       : `
     border-radius: 6px;
   `}
+`;
+
+export const Wrapper = styled.div`
+  position: relative;
+  width: 100%;
+  ${({ error }) =>
+    error &&
+    css`
+      input {
+        border: 1px solid #fc4734 !important;
+      }
+    `}
+`;
+
+export const Error = styled.span`
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  color: #fc4734;
+  font-size: 12px;
 `;

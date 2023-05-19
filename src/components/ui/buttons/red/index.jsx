@@ -64,7 +64,7 @@ const Button = (props) => {
         props.onClick?.(e);
         createRipple(e);
       }}
-      type={props.button || "button"}
+      type={props.type || "button"}
     >
       {props?.children}
     </Wrapper>

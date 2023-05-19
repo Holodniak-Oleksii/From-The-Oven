@@ -68,12 +68,12 @@ export const Group = styled.div`
   }
   @media screen and (max-width: 540px) {
     .price {
-      font-size: 12px;
+      font-size: 14px;
       width: calc(100% - 80px);
     }
     .red-btn {
       font-size: 12px;
-      padding: 4px 8px !important;
+      padding: 4px 20px !important;
     }
   }
 `;
@@ -112,7 +112,7 @@ export const Size = styled.div`
   @media screen and (max-width: 767px) {
     .red-btn {
       font-size: 12px;
-      padding: 2px 0;
+      padding: 4px 0;
     }
   }
 `;

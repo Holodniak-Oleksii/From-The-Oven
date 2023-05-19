@@ -36,6 +36,8 @@ export const Flex = styled.div`
     }
     @media screen and (max-width: 420px) {
       width: 100%;
+      max-width: 250px;
+      margin: 0 auto;
     }
   }
 `;

@@ -1,35 +1,71 @@
-import { Field, RedButton } from "@/components/ui";
+import { Input, RedButton } from "@/components/ui";
+import { transformObj } from "@/helpers/transformObj";
+import { clearProductsAction } from "@/store/actions/basket";
+import { useBasket } from "@/store/selectors/index";
 import React from "react";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+import { FormProvider, useForm } from "react-hook-form";
 import { ORDER_LIST } from ".";
-import { Form, Indent, OrderSubmit } from "./style";
+import { PhoneField } from "../../ui";
+import { Form, FormContainer, Indent, OrderSubmit } from "./style";
+// import Order from "@/api/order";
 const ToOrder = ({ setStep, close }) => {
+  const methods = useForm({ mode: "onSubmit" });
+  const { handleSubmit, reset } = methods;
+  const { pizzas, score } = useBasket();
+
   const handlerChangeStep = () => {
     setStep(ORDER_LIST);
   };
+
+  const onSubmit = async (data) => {
+    const orderData = {
+      customerName: data.name,
+      customerTelephone: data.phone,
+      deliveryAddress: data.address,
+      totalAmount: score,
+      orderInfo: transformObj(pizzas),
+    };
+    // const api = new Order()
+    // api.setNewOrder()
+    clearProductsAction();
+    reset();
+  };
   return (
-    <>
-      <Form>
-        <Field placeholder='Name' />
-        <PhoneInput
-          country={"ua"}
-          containerClass='phone-container'
-          inputClass={"phone-input"}
-          buttonClass='phone-button'
-        />
-        <Field placeholder='Address' />
+    <FormProvider {...methods}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <FormContainer>
+          <Input
+            placeholder='Name'
+            rules={{
+              required: true,
+            }}
+            name='name'
+          />
+          <PhoneField
+            name={"phone"}
+            rules={{
+              required: true,
+            }}
+          />
+          <Input
+            placeholder='Address'
+            rules={{
+              required: true,
+            }}
+            name='address'
+          />
+        </FormContainer>
+        <Indent />
+        <OrderSubmit>
+          <RedButton className='order' outline onClick={handlerChangeStep}>
+            Change order
+          </RedButton>
+          <RedButton className='order' onClick={close} type='submit'>
+            Submit
+          </RedButton>
+        </OrderSubmit>
       </Form>
-      <Indent />
-      <OrderSubmit>
-        <RedButton className='order' outline onClick={handlerChangeStep}>
-          Change order
-        </RedButton>
-        <RedButton className='order' onClick={close}>
-          Submit
-        </RedButton>
-      </OrderSubmit>
-    </>
+    </FormProvider>
   );
 };
 

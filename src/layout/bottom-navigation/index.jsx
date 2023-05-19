@@ -1,10 +1,14 @@
-import React from "react";
-import { navigations } from "../data";
-import { Wrapper, Item } from "./style";
-import { Link } from "react-router-dom";
 import { IconMarket } from "@/components/icons";
+import { useBasket } from "@/store/selectors/index";
+import React from "react";
+import { Link } from "react-router-dom";
+import { navigations } from "../data";
+import { Market } from "../header/style";
+import { Item, Wrapper } from "./style";
 
-export const BottomNavigation = () => {
+export const BottomNavigation = ({ setOpenOrder }) => {
+  const { amount } = useBasket();
+
   return (
     <Wrapper>
       {navigations.map((item) => (
@@ -13,7 +17,14 @@ export const BottomNavigation = () => {
         </Item>
       ))}
       <Item>
-        <IconMarket fill={"#000000"} />
+        <Market
+          onClick={() => {
+            if (amount) setOpenOrder(true);
+          }}
+          amount={amount}
+        >
+          <IconMarket fill={"#000000"} />
+        </Market>
       </Item>
     </Wrapper>
   );

@@ -52,7 +52,7 @@ const OrderList = ({ setStep }) => {
       <Result>
         <Cover>
           Order amount
-          <span>{Number(score).toFixed(2)}</span>
+          <span>{Number(score).toFixed(2)}$</span>
         </Cover>
         <RedButton className='order' onClick={handlerToOrder}>
           To order

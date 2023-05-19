@@ -16,6 +16,9 @@ export const Category = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
+  span {
+    width: 100%;
+  }
 `;
 
 export const Flex = styled.div`
@@ -24,6 +27,9 @@ export const Flex = styled.div`
   justify-content: space-between;
   gap: 12px;
   width: 100%;
+  span {
+    width: 100%;
+  }
   .select-wrapper {
     max-width: 320px;
   }

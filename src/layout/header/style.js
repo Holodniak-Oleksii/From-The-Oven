@@ -88,11 +88,6 @@ export const Market = styled.button`
     transition: all 0.3s ease;
     height: 30px;
     width: auto;
-    ${({ amount }) =>
-      !amount &&
-      css`
-        filter: grayscale(100%);
-      `}
   }
   ${({ amount }) =>
     amount &&
@@ -113,6 +108,12 @@ export const Market = styled.button`
         aspect-ratio: 1 / 1;
         border-radius: 50%;
         ${flex_center}
+        @media screen and (max-width: 540px) {
+          top: -3px;
+          right: -1px;
+          min-width: 20px;
+          min-height: 20px;
+        }
       }
     `}
 `;

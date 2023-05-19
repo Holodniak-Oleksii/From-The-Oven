@@ -106,6 +106,14 @@ const basketSlice = createSlice({
       localStorage.setItem("score", state.score);
       localStorage.setItem("amount", state.amount);
     },
+    clearProducts: (state, action) => {
+      state.pizzas = [];
+      state.score = 0;
+      state.amount = 0;
+      localStorage.setItem("pizzas", JSON.stringify(state.pizzas));
+      localStorage.setItem("score", state.score);
+      localStorage.setItem("amount", state.amount);
+    },
   },
 });
 

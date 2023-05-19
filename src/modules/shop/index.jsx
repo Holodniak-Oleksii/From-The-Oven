@@ -5,6 +5,7 @@ import { ProductCard, ProductCardLoader } from "@/components/ui";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import Filter from "./components/filter/index";
+import FilterLoader from "./components/filter/loader";
 import NotFound from "./components/not-found";
 import { Flex, Wrapper } from "./style";
 
@@ -26,7 +27,7 @@ const Shop = () => {
       const api = new Pizza();
       const ingredients = await api.getIngredient();
       const categories = await api.getCategories();
-      setSort({ ingredients, categories });
+      setSort({ ingredients: ingredients || [], categories: categories || [] });
     };
     get();
   }, []);
@@ -47,7 +48,7 @@ const Shop = () => {
         filter.ingredients?.join(",") || "",
         filter.categories || ""
       );
-      setPizzas({ data: pizza, loading: false });
+      setPizzas({ data: pizza?.result || [], loading: false });
     };
     get();
   }, [filter.categories, filter.ingredients, filter.query]);
@@ -65,8 +66,10 @@ const Shop = () => {
   return (
     <Container isMarginForHeader>
       <Wrapper>
-        {(!!sort.ingredients.length || !!sort.categories.length) && (
+        {!!sort.ingredients.length || !!sort.categories.length ? (
           <Filter setFilter={setFilter} filter={filter} sort={sort} />
+        ) : (
+          <FilterLoader />
         )}
         {!!pizzas.loading ? (
           <Flex>
@@ -76,12 +79,12 @@ const Shop = () => {
           </Flex>
         ) : (
           <>
-            {!pizzas.data.result?.length ? (
+            {!pizzas.data?.length ? (
               <NotFound />
             ) : (
               <>
                 <Flex>
-                  {pizzas.data.result.map((item) => (
+                  {pizzas.data?.map((item) => (
                     <ProductCard item={item} key={item?.id} />
                   ))}
                 </Flex>

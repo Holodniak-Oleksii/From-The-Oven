@@ -1,10 +1,9 @@
 import logo from "@/assets/images/logo.png";
 import { IconMarket } from "@/components/icons";
-import OrderModal from "@/components/modals/orders";
 import { LittleMobileOff } from "@/helpers/responsive";
 import useOnScreen from "@/helpers/useOnScreen";
 import { useBasket } from "@/store/selectors/index";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { navigations } from "../data";
 import {
@@ -18,13 +17,12 @@ import {
   Wrapper,
 } from "./style";
 
-const Header = () => {
+const Header = ({ setOpenOrder }) => {
   const ref = useRef(null);
   const onScreen = useOnScreen(ref, "72px");
   const { pathname } = useLocation();
   const isHome = pathname === "/";
   const isTransparent = pathname === "/" || pathname === "/contact-us";
-  const [openOrder, setOpenOrder] = useState(false);
   const { amount } = useBasket();
   return (
     <>
@@ -60,7 +58,6 @@ const Header = () => {
           </Flex>
         </HeaderContainer>
       </Wrapper>
-      <OrderModal open={openOrder} close={() => setOpenOrder(false)} />
     </>
   );
 };

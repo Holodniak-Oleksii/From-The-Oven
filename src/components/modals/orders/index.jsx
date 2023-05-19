@@ -15,10 +15,16 @@ export const Wrapper = styled.div`
   padding: 0 16px;
   backdrop-filter: blur(5px);
   background: rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
 `;
 
 export const Column = styled.div`
-  height: 100%;
+  max-height: 100%;
+  min-height: 500px;
   width: 100%;
   max-width: 700px;
   ${flex_center}
@@ -27,10 +33,15 @@ export const Column = styled.div`
 export const Container = styled.div`
   background-color: #fff;
   border-radius: 12px;
+  max-height: 100%;
   padding: 24px 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  @media screen and (max-width: 540px) {
+    padding: 16px 0;
+  }
 `;
 export const ORDER_LIST = "order-list";
 export const TO_ORDER = "to-order";
