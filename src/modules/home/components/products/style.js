@@ -26,6 +26,7 @@ export const Card = styled.div`
   border: 1px solid #fff;
   box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.1);
   gap: 10px;
+
   img {
     max-width: 100px;
   }
@@ -36,6 +37,14 @@ export const Card = styled.div`
   }
   @media screen and (max-width: 1024px) {
     padding: 8px;
+  }
+`;
+
+export const CardLoader = styled(Card)`
+  span {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
   }
 `;
 export const Flex = styled.div`
@@ -58,12 +67,6 @@ export const Flex = styled.div`
   }
 `;
 
-export const Price = styled.div`
-  span {
-    color: #ccc;
-    text-decoration: line-through;
-  }
-`;
 export const Banner = styled.div`
   min-width: 260px;
   width: 30%;

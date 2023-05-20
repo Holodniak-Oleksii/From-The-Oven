@@ -4,23 +4,23 @@ import StarRatings from "react-star-ratings";
 import {
   DesktopOff,
   DesktopOn,
-  LittleMobileOn,
   LittleMobileOff,
+  LittleMobileOn,
 } from "@/helpers/responsive";
 
-import { Card, Flex, Price } from "./style";
+import { Card, Flex } from "./style";
 
 const Item = ({ item }) => {
   return (
     <Card>
       <img src={item.image} alt='pizza' />
       <Flex>
-        <h3>{item.title}</h3>
+        <h3>{item.name}</h3>
         <DesktopOff>
           <StarRatings
             starRatedColor='#ffc107'
             numberOfStars={5}
-            rating={item.ratting}
+            rating={item.rating}
             starDimension='25px'
             starSpacing='5px'
           />
@@ -45,9 +45,7 @@ const Item = ({ item }) => {
             starSpacing='3px'
           />
         </LittleMobileOn>
-        <Price>
-          <span>{item.oldPrice}$</span>/{item.price}$
-        </Price>
+        <span>{item.priceSmall}$</span>
       </Flex>
     </Card>
   );
