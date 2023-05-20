@@ -66,16 +66,16 @@ const Details = () => {
                     <span>Size </span>
                     <IoIosResize />
                   </Text>
-                  <Text>{details.data.sizeSmall}</Text>
-                  <Text>{details.data.sizeLarge}</Text>
+                  <Text>{details.data.sizeSmall}sm</Text>
+                  <Text>{details.data.sizeLarge}sm</Text>
                 </Item>
                 <Item>
                   <Text className='head'>
                     <span>Weight </span>
                     <TbWeight />
                   </Text>
-                  <Text>{details.data.massSmall}</Text>
-                  <Text>{details.data.massLarge}</Text>
+                  <Text>{details.data.massSmall}g</Text>
+                  <Text>{details.data.massLarge}g</Text>
                 </Item>
                 <Item>
                   <Text className='head'>

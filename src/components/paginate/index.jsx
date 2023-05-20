@@ -1,16 +1,25 @@
+import "@/assets/scss/effects/_paginate.scss";
 import React from "react";
+import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import ReactPaginate from "react-paginate";
-
-const Paginate = ({ pageCount, handlePageClick }) => {
+const Paginate = ({ page = 1, pageCount, handlePageClick }) => {
   return (
     <ReactPaginate
-      breakLabel='...'
-      nextLabel='next >'
+      activeClassName={"item active "}
+      breakClassName={"item break-me "}
+      breakLabel={"..."}
+      containerClassName={"pagination"}
+      disabledClassName={"disabled-page"}
+      nextClassName={"item next "}
+      nextLabel={<GrFormNext />}
       onPageChange={handlePageClick}
-      pageRangeDisplayed={5}
+      forcePage={page - 1}
       pageCount={pageCount}
-      previousLabel='< previous'
-      renderOnZeroPageCount={null}
+      pageClassName={"item pagination-page "}
+      previousClassName={"item previous"}
+      previousLabel={<GrFormPrevious />}
+      marginPagesDisplayed={2}
+      pageRangeDisplayed={2}
     />
   );
 };

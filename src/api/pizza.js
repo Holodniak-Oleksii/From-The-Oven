@@ -37,10 +37,16 @@ class Pizza {
       console.error(error);
     }
   }
-  async getSearch(name = "", ingredients = "", categories = "", limit = "") {
+  async getSearch(
+    name = "",
+    ingredients = "",
+    categories = "",
+    limit = "",
+    page = ""
+  ) {
     try {
       const { data } = await axios.get(
-        `/${this.addition}s/search?name=${name}&ingredients=${ingredients}&categories=${categories}&limit=${limit}`
+        `/${this.addition}s/search?name=${name}&ingredients=${ingredients}&categories=${categories}&limit=${limit}&page=${page}`
       );
       return data;
     } catch (error) {

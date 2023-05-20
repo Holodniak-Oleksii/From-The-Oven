@@ -38,3 +38,19 @@ export const Error = styled.span`
   color: #fc4734;
   font-size: 12px;
 `;
+
+export const TextArea = styled.textarea`
+  resize: none;
+  height: 200px;
+  width: 100%;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.311);
+
+  border: 1px solid #fc4734;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif !important;
+
+  line-height: 18px;
+  padding: 14px;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.03);
+`;

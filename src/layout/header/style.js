@@ -11,7 +11,7 @@ export const Wrapper = styled.header`
   width: 100%;
   transition: all 0.4s ease;
   ${(props) =>
-    props.onScreen
+    props.scroll
       ? `
       backdrop-filter: blur(100px);
       background-color: rgba(255, 255, 255, 0.01);
@@ -35,7 +35,7 @@ export const Item = styled.li`
   a {
     transition: all 0.3s ease;
     ${(props) =>
-      props.onScreen
+      props.scroll
         ? `
       color: #fff;
       `
@@ -119,7 +119,7 @@ export const Market = styled.button`
 `;
 export const NumberPhone = styled.div`
   ${(props) =>
-    props.onScreen
+    props.scroll
       ? `
       color: #fff;
       `

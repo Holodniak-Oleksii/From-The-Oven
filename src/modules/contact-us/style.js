@@ -19,7 +19,7 @@ export const Form = styled.form`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   .field {
     border: 1px solid #fc4734;
   }
@@ -57,9 +57,11 @@ export const Title = styled.h2`
 export const Background = styled.div`
   position: relative;
   height: 100%;
-  .bubble {
-    &::before {
-      background: hsl(350deg 100% 50% / 40%);
-    }
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;

@@ -27,14 +27,14 @@ const Header = ({ setOpenOrder }) => {
   return (
     <>
       <div ref={ref} />
-      <Wrapper onScreen={isTransparent ? onScreen : false}>
+      <Wrapper scroll={isTransparent ? onScreen : false}>
         <HeaderContainer>
           <Flex>
             <Logo src={logo} alt='logo' />
             <LittleMobileOff>
               <Navigations>
                 {navigations.map((item) => (
-                  <Item onScreen={isHome ? onScreen : false} key={item?.id}>
+                  <Item scroll={isHome ? onScreen : false} key={item?.id}>
                     <Link to={item?.path}>{item?.title}</Link>
                   </Item>
                 ))}
@@ -42,7 +42,7 @@ const Header = ({ setOpenOrder }) => {
             </LittleMobileOff>
           </Flex>
           <Flex>
-            <NumberPhone onScreen={isHome ? onScreen : false}>
+            <NumberPhone scroll={isHome ? onScreen : false}>
               +380 89 56 44 432
             </NumberPhone>
             <LittleMobileOff>

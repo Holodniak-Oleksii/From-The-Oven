@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Pizza from "@/api/pizza";
 import Container from "@/components/containers";
+import Paginate from "@/components/paginate/index";
 import { ProductCard, ProductCardLoader } from "@/components/ui";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -21,6 +22,9 @@ const Shop = () => {
 
   const [sort, setSort] = useState({ ingredients: [], categories: [] });
   const [pizzas, setPizzas] = useState({ loading: true, data: [] });
+  const [page, setPage] = useState(1);
+
+  const itemsPerPage = 15;
 
   useEffect(() => {
     const get = async () => {
@@ -46,12 +50,14 @@ const Shop = () => {
       const pizza = await api.getSearch(
         filter.query,
         filter.ingredients?.join(",") || "",
-        filter.categories || ""
+        filter.categories || "",
+        itemsPerPage,
+        page
       );
-      setPizzas({ data: pizza?.result || [], loading: false });
+      setPizzas({ data: pizza || [], loading: false });
     };
     get();
-  }, [filter.categories, filter.ingredients, filter.query]);
+  }, [filter.categories, filter.ingredients, filter.query, page]);
 
   useEffect(() => {
     setFilter({
@@ -62,6 +68,11 @@ const Shop = () => {
       categories: params.get("categories") || "",
     });
   }, [params]);
+
+  const handlePageClick = (event) => {
+    console.log("🚀 ~ file: index.jsx:73 ~ handlePageClick ~ event:", event);
+    setPage(event.selected + 1);
+  };
 
   return (
     <Container isMarginForHeader>
@@ -79,12 +90,12 @@ const Shop = () => {
           </Flex>
         ) : (
           <>
-            {!pizzas.data?.length ? (
+            {!pizzas.data?.result?.length ? (
               <NotFound />
             ) : (
               <>
                 <Flex>
-                  {pizzas.data?.map((item) => (
+                  {pizzas.data?.result?.map((item) => (
                     <ProductCard item={item} key={item?.id} />
                   ))}
                 </Flex>
@@ -92,7 +103,13 @@ const Shop = () => {
             )}
           </>
         )}
-        {/* <Paginate pageCount={Math.ceil(pizzas.data.total / 5)} /> */}
+        {!pizzas.loading && pizzas.data?.total / itemsPerPage > 1 && (
+          <Paginate
+            page={page}
+            pageCount={Math.ceil(pizzas.data?.total / itemsPerPage)}
+            handlePageClick={handlePageClick}
+          />
+        )}
       </Wrapper>
     </Container>
   );
