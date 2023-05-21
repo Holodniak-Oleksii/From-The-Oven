@@ -1,17 +1,21 @@
+import Order from "@/api/order";
 import { Input, RedButton } from "@/components/ui";
 import { transformObj } from "@/helpers/transformObj";
 import { clearProductsAction } from "@/store/actions/basket";
 import { useBasket } from "@/store/selectors/index";
+import { useSnackbar } from "notistack";
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { ORDER_LIST } from ".";
 import { PhoneField } from "../../ui";
 import { Form, FormContainer, Indent, OrderSubmit } from "./style";
-// import Order from "@/api/order";
+
 const ToOrder = ({ setStep, close }) => {
   const methods = useForm({ mode: "onSubmit" });
   const { handleSubmit, reset } = methods;
   const { pizzas, score } = useBasket();
+  const { enqueueSnackbar } = useSnackbar();
+  const api = new Order();
 
   const handlerChangeStep = () => {
     setStep(ORDER_LIST);
@@ -25,11 +29,22 @@ const ToOrder = ({ setStep, close }) => {
       totalAmount: score,
       orderInfo: transformObj(pizzas),
     };
-    // const api = new Order()
-    // api.setNewOrder()
-    clearProductsAction();
-    reset();
+    try {
+      await api.setNewOrder(orderData);
+      enqueueSnackbar("Send successful", {
+        variant: "success",
+        autoHideDuration: 4000,
+      });
+      clearProductsAction();
+      reset();
+    } catch (e) {
+      enqueueSnackbar(e.message, {
+        variant: "error",
+        autoHideDuration: 4000,
+      });
+    }
   };
+
   return (
     <FormProvider {...methods}>
       <Form onSubmit={handleSubmit(onSubmit)}>

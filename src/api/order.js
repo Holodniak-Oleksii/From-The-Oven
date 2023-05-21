@@ -2,15 +2,10 @@ import axios from "./base";
 
 class Order {
   constructor() {
-    this.addition = "order";
+    this.addition = "orders";
   }
-  async setNewOrder() {
-    try {
-      const { data } = await axios.post(`/${this.addition}/ingredients}`);
-      return data?.result;
-    } catch (error) {
-      console.error(error);
-    }
+  async setNewOrder(data) {
+    await axios.post(`/${this.addition}`, data);
   }
 }
 
