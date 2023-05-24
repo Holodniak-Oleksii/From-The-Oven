@@ -4,6 +4,7 @@ import ErrorPage from "@/modules/error";
 import Home from "@/modules/home";
 import Shop from "@/modules/shop";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AdminDashboard from "./modules/admin";
 import Details from "./modules/details";
 
 const Router = () => {
@@ -20,6 +21,10 @@ const Router = () => {
         {
           path: "/shop",
           element: <Shop />,
+        },
+        {
+          path: "/pizza-admin",
+          element: <AdminDashboard />,
         },
         {
           path: "/pizza/:id",

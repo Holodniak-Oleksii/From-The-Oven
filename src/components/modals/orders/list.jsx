@@ -5,13 +5,13 @@ import { HiMinusSm, HiPlusSm } from "react-icons/hi";
 import { TO_ORDER } from ".";
 
 import { minusProductAction, plusProductAction } from "@/store/actions/basket";
+import { List } from "../style";
 import {
   Counter,
   Cover,
   Image,
   Indent,
   Item,
-  List,
   Name,
   Price,
   Result,

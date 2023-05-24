@@ -19,10 +19,18 @@ export const LayoutContext = createContext();
 const Layout = () => {
   const { pathname } = useLocation();
   const isHome = pathname === "/";
+  const noLayout = pathname === "/pizza-admin";
+
   const isMobile = useMediaQuery({ minWidth: 768 });
   const [loading, setLoading] = useState(isHome ? isMobile : false);
   const [openOrder, setOpenOrder] = useState(false);
-
+  if (noLayout) {
+    return (
+      <Wrapper>
+        <Outlet />
+      </Wrapper>
+    );
+  }
   return (
     <SnackbarProvider
       maxSnack={3}

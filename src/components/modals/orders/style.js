@@ -14,53 +14,6 @@ export const Item = styled.div`
   }
 `;
 
-export const CloseButton = styled.button`
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  ${flex_center};
-  width: 40px;
-  height: 40px;
-  background-color: #f3f1f1ce;
-  padding: 5px;
-  transition: all 0.4s linear;
-  transform-origin: center;
-  svg {
-    width: 100%;
-    height: 100%;
-  }
-  &:hover {
-    background-color: #edeaeaf6;
-  }
-  &:active {
-    transform: scale(0.8);
-  }
-  @media screen and (max-width: 540px) {
-    width: 35px;
-    height: 35px;
-  }
-`;
-
-export const Head = styled.div`
-  padding: 0 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  @media screen and (max-width: 540px) {
-    padding: 0 16px;
-  }
-`;
-export const List = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-height: 510px;
-  padding: 0 40px;
-  overflow: auto;
-  @media screen and (max-width: 540px) {
-    padding: 0 16px;
-  }
-`;
 export const Title = styled.h2`
   font-size: 20px;
   font-weight: 700;
