@@ -7,13 +7,19 @@ class Order {
   async setNewOrder(data) {
     await axios.post(`/${this.addition}`, data);
   }
-  async getOrders(limit = "") {
+
+  async getOrders(limit = "", page = "") {
     try {
-      const { data } = await axios.get(`/${this.addition}?limit=${limit}`);
+      const { data } = await axios.get(
+        `/${this.addition}?limit=${limit}&page=${page}`
+      );
       return data;
     } catch (error) {
       console.error(error);
     }
+  }
+  async deleteOrder(id) {
+    await axios.delete(`/${this.addition}/${id}`);
   }
 }
 

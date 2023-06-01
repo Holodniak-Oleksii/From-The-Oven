@@ -26,9 +26,21 @@ const Layout = () => {
   const [openOrder, setOpenOrder] = useState(false);
   if (noLayout) {
     return (
-      <Wrapper>
-        <Outlet />
-      </Wrapper>
+      <SnackbarProvider
+        maxSnack={3}
+        Components={{
+          success: SuccessSnacks,
+          error: ErrorSnacks,
+        }}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+      >
+        <Wrapper>
+          <Outlet />
+        </Wrapper>
+      </SnackbarProvider>
     );
   }
   return (

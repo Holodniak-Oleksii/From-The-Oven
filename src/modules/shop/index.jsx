@@ -37,6 +37,10 @@ const Shop = () => {
   }, []);
 
   useEffect(() => {
+    setPage(1);
+  }, [filter.categories, filter.ingredients, filter.query]);
+
+  useEffect(() => {
     const get = async () => {
       setPizzas((prev) => ({ ...prev, loading: true }));
 
@@ -70,7 +74,6 @@ const Shop = () => {
   }, [params]);
 
   const handlePageClick = (event) => {
-    console.log("🚀 ~ file: index.jsx:73 ~ handlePageClick ~ event:", event);
     setPage(event.selected + 1);
   };
 

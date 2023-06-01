@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  login: JSON.parse(localStorage.getItem("adminPizza")),
+  token: localStorage.getItem("tokenPizza"),
+  isAuth: false,
 };
 
 const adminSlice = createSlice({
@@ -9,8 +10,11 @@ const adminSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
-      state.login = true;
-      localStorage.setItem("adminPizza", true);
+      state.token = action.payload;
+      localStorage.setItem("tokenPizza", action.payload);
+    },
+    auth: (state) => {
+      state.isAuth = true;
     },
   },
 });

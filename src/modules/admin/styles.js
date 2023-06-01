@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
 export const Background = styled.div`
   position: relative;
   height: 100%;
+  width: 100%;
   img {
     position: absolute;
     inset: 0;
@@ -29,10 +30,11 @@ export const Background = styled.div`
 
 export const Row = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr 5fr 1fr 4fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr 5fr 1fr 4fr 2fr 1fr 1fr;
   grid-gap: 16px;
   width: 100%;
   height: 50px;
+  min-width: 1000px;
   background: rgba(246, 240, 240, 0.16);
   border: 1px solid #fff;
   backdrop-filter: blur(6px);
@@ -56,6 +58,9 @@ export const Item = styled.div`
   height: 100%;
   align-items: center;
   justify-content: center;
+  span {
+    width: 100%;
+  }
 `;
 
 export const Icon = styled.button`
@@ -91,5 +96,19 @@ export const Form = styled.form`
     margin: 0 auto;
     max-width: 200px;
     padding: 6px 20px;
+  }
+`;
+
+export const Content = styled.div`
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  &::-webkit-scrollbar {
+    height: 4px;
+    background-color: #fff;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+    border-radius: 2px;
   }
 `;
