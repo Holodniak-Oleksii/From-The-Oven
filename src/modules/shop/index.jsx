@@ -36,9 +36,9 @@ const Shop = () => {
     get();
   }, []);
 
-  useEffect(() => {
-    setPage(1);
-  }, [filter.categories, filter.ingredients, filter.query]);
+  // useEffect(() => {
+  //   setPage(1);
+  // }, [filter.categories, filter.ingredients, filter.query]);
 
   useEffect(() => {
     const get = async () => {
