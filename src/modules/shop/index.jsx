@@ -36,12 +36,14 @@ const Shop = () => {
     get();
   }, []);
 
-  // useEffect(() => {
-  //   setPage(1);
-  // }, [filter.categories, filter.ingredients, filter.query]);
+  useEffect(() => {
+    setPage(1);
+  }, [filter.categories, filter.ingredients, filter.query]);
 
   useEffect(() => {
     const get = async () => {
+      console.log("🚀 ~ АШД");
+
       setPizzas((prev) => ({ ...prev, loading: true }));
 
       setParams({
@@ -62,16 +64,6 @@ const Shop = () => {
     };
     get();
   }, [filter.categories, filter.ingredients, filter.query, page]);
-
-  useEffect(() => {
-    setFilter({
-      query: params.get("name") || "",
-      ingredients: params.get("ingredients")
-        ? params.get("ingredients").split(",")
-        : [],
-      categories: params.get("categories") || "",
-    });
-  }, [params]);
 
   const handlePageClick = (event) => {
     setPage(event.selected + 1);
