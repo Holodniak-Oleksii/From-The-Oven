@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
+import React from "react";
 
 import Container from "@/components/containers";
-import useAnimation from "@/helpers/useAnimation";
 import Advertisements from "./components/advertisements";
 import Banner from "./components/banner";
 import Bonus from "./components/bonus";
@@ -16,11 +15,8 @@ import ProductsGrid from "./components/products/index";
 import { counter, feedback } from "./data";
 
 const Home = () => {
-  const ref = useRef();
-  useAnimation(ref);
-
   return (
-    <Wrapper ref={ref}>
+    <Wrapper>
       <Banner />
       <Container>
         <Bonus />

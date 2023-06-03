@@ -6,7 +6,7 @@ import Item from "./item";
 import { Banner, CardLoader, Content, Wrapper } from "./style";
 
 import Pizza from "@/api/pizza";
-import bg from "@/assets/images/pizza.jpg";
+import bg from "@/assets/images/banner.webp";
 import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import { useMediaQuery } from "react-responsive";

@@ -1,5 +1,5 @@
-import carousel from "@/assets/images/carousel.png";
-import pizza from "@/assets/images/pizza.png";
+import carousel from "@/assets/images/carousel.webp";
+import pizza from "@/assets/images/pizza.webp";
 import React from "react";
 import styled, { keyframes } from "styled-components";
 const rotate = keyframes`

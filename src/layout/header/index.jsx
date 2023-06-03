@@ -1,4 +1,4 @@
-import logo from "@/assets/images/logo.png";
+import logo from "@/assets/images/logo.webp";
 import { IconMarket } from "@/components/icons";
 import { LittleMobileOff } from "@/helpers/responsive";
 import useOnScreen from "@/helpers/useOnScreen";
