@@ -1,4 +1,3 @@
-import { flex_center } from "@/assets/scss/global";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -74,7 +73,7 @@ export const Icon = styled.button`
   bottom: 0;
   left: 0;
   z-index: 1;
-  ${flex_center}
+  ${({ theme }) => theme.content.center}
   height: 44px;
   width: 44px;
 `;

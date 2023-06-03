@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import { flex_center } from "@/assets/scss/global";
 
 export const Wrapper = styled.div`
   width: 80%;
   margin: auto;
   height: 100%;
-  ${flex_center};
+  ${({ theme }) => theme.content.center};
   justify-content: flex-start;
   padding: 16px 20px;
   background: rgba(246, 240, 240, 0.58);

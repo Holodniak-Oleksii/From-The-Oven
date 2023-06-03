@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { flex_center } from "@/assets/scss/global";
 
 export const Wrapper = styled.div`
   background-color: rgba(255, 255, 255, 1);
@@ -16,7 +15,7 @@ export const Wrapper = styled.div`
   justify-content: space-around;
 `;
 export const Item = styled.button`
-  ${flex_center};
+  ${({ theme }) => theme.content.center};
   width: calc(100% / 4);
   border-radius: 50%;
   svg {

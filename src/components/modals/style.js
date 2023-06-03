@@ -1,10 +1,9 @@
-import { flex_center } from "@/assets/scss/global";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  ${flex_center}
+  ${({ theme }) => theme.content.center}
   padding: 0 16px;
   backdrop-filter: blur(5px);
   background: rgba(0, 0, 0, 0.5);
@@ -20,7 +19,7 @@ export const Column = styled.div`
   min-height: 500px;
   width: 100%;
   max-width: 700px;
-  ${flex_center}
+  ${({ theme }) => theme.content.center}
 `;
 
 export const Container = styled.div`
@@ -95,7 +94,7 @@ export const Item = styled.div`
 export const CloseButton = styled.button`
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  ${flex_center};
+  ${({ theme }) => theme.content.center};
   width: 40px;
   height: 40px;
   background-color: #f3f1f1ce;

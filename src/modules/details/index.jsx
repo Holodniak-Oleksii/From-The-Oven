@@ -25,14 +25,16 @@ import {
 const Details = () => {
   const { id } = useParams();
   const [details, setDetails] = useState({ data: {}, loading: true });
+  const api = new Pizza();
+
   useEffect(() => {
     const get = async () => {
-      const api = new Pizza();
       const pizza = await api.getSinglePizza(id);
       setDetails({ data: pizza[0], loading: false });
     };
     get();
   }, [id]);
+
   const handlerOrder = (e) => {
     const product = {
       id: details.data.id,

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { flex_center } from "@/assets/scss/global";
 
 export const Wrapper = styled.div`
   background-color: rgba(234, 233, 233, 0.305);
@@ -24,7 +23,7 @@ export const Flex = styled.div`
 `;
 
 export const Item = styled.div`
-  ${flex_center}
+  ${({ theme }) => theme.content.center}
   flex-direction: column;
   font-size: 40px;
   line-height: 44px;

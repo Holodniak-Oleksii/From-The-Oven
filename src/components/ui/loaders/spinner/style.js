@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import { flex_center } from "@/assets/scss/global";
 
 const animationBump = keyframes`
   from,
@@ -94,6 +93,6 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   z-index: 100;
-  ${flex_center}
+  ${({ theme }) => theme.content.center}
   background-color: RGB(32, 27, 50, 1);
 `;

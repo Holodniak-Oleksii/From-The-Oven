@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { flex_center } from "@/assets/scss/global";
 
 export const Wrapper = styled.div`
   border-radius: 12px;
@@ -8,7 +7,7 @@ export const Wrapper = styled.div`
   border: 1px solid rgba(111, 109, 109, 0.22);
   box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.1);
   margin: 20px auto 40px auto;
-  ${flex_center}
+  ${({ theme }) => theme.content.center}
   flex-direction: column;
   @media screen and (max-width: 1024px) {
     width: 100%;
@@ -84,6 +83,7 @@ export const Description = styled.p`
   font-size: 14px;
   line-height: 20px;
   font-weight: 300;
+  ${({ theme }) => theme.text.getLineClamp(3)}
 `;
 
 export const Container = styled.div`

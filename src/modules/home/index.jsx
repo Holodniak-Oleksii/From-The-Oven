@@ -13,7 +13,7 @@ import GrigPizza from "./components/grid";
 import { Wrapper } from "./style";
 
 import ProductsGrid from "./components/products/index";
-import { counter, dataAction, feedback } from "./data";
+import { counter, feedback } from "./data";
 
 const Home = () => {
   const ref = useRef();
@@ -31,7 +31,7 @@ const Home = () => {
         <Discount />
       </Container>
       <Count data={counter} />
-      <ProductsGrid data={dataAction} />
+      <ProductsGrid />
       <Contact data={feedback} />
     </Wrapper>
   );

@@ -1,4 +1,3 @@
-import { flex_center, overflowText } from "@/assets/scss/global";
 import styled from "styled-components";
 
 export const Item = styled.div`
@@ -44,7 +43,7 @@ export const Text = styled.div`
 export const Name = styled.span`
   font-size: 18px;
   font-weight: 700;
-  ${overflowText}
+  ${({ theme }) => theme.text.overflow}
   @media screen and (max-width: 540px) {
     font-size: 14px;
   }
@@ -73,7 +72,7 @@ export const Counter = styled.div`
     color: #000;
     font-size: 24px;
     font-weight: 600;
-    ${flex_center};
+    ${({ theme }) => theme.content.center};
     width: 34px;
     height: 34px;
     background-color: #f6f5f5ce;

@@ -1,4 +1,3 @@
-import { flex_center } from "@/assets/scss/global";
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
@@ -7,7 +6,7 @@ export const Wrapper = styled.div`
   height: auto;
   max-width: calc(100vw - 32px);
   border-radius: 16px;
-  ${flex_center}
+  ${({ theme }) => theme.content.center}
   justify-content: flex-start;
   gap: 10px;
   padding: 12px;
@@ -41,7 +40,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Icon = styled.div`
-  ${flex_center}
+  ${({ theme }) => theme.content.center}
   height: 100%;
   width: 24px;
   svg {

@@ -1,4 +1,3 @@
-import { overflowText } from "@/assets/scss/global";
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
@@ -52,7 +51,7 @@ export const Row = styled.div`
 `;
 
 export const Item = styled.div`
-  ${overflowText}
+  ${({ theme }) => theme.text.overflow}
   text-align: center;
   display: flex;
   height: 100%;

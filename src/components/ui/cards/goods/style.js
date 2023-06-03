@@ -1,11 +1,10 @@
-import { flex_center, overflowText } from "@/assets/scss/global";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   flex-direction: column;
-  ${flex_center}
+  ${({ theme }) => theme.content.center}
   padding: 16px 20px;
   background: rgba(246, 240, 240, 0.58);
   border: 1px solid #fff;
@@ -18,7 +17,7 @@ export const Wrapper = styled.div`
     font-size: 24px;
     line-height: 28px;
     font-weight: 500;
-    ${overflowText}
+    ${({ theme }) => theme.text.overflow}
     text-align: center;
   }
   .price {
@@ -59,7 +58,7 @@ export const Group = styled.div`
   align-items: center;
   .price {
     font-size: 14px;
-    ${overflowText};
+    ${({ theme }) => theme.text.overflow};
     width: calc(100% - 115px);
   }
   .red-btn {

@@ -1,4 +1,3 @@
-import { flex_center } from "@/assets/scss/global";
 import { MainWrapper } from "@/components/containers";
 import styled, { css } from "styled-components";
 
@@ -107,7 +106,7 @@ export const Market = styled.button`
         padding: 3px;
         aspect-ratio: 1 / 1;
         border-radius: 50%;
-        ${flex_center}
+        ${({ theme }) => theme.content.center}
         @media screen and (max-width: 540px) {
           top: -3px;
           right: -1px;

@@ -1,4 +1,3 @@
-import { flex_center } from "@/assets/scss/global";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -70,7 +69,7 @@ export const Field = styled.div`
 `;
 
 export const IconSearch = styled.div`
-  ${flex_center}
+  ${({ theme }) => theme.content.center}
   padding: 8px;
   height: 100%;
   border-radius: 50%;
@@ -82,7 +81,7 @@ export const Chips = styled.button`
   width: 50px;
   border-radius: 50%;
   aspect-ratio: 1 / 1;
-  ${flex_center}
+  ${({ theme }) => theme.content.center}
   position: relative;
   margin-left: -10px;
   background-color: #fff;

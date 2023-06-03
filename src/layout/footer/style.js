@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { flex_center } from "@/assets/scss/global";
 
 export const Wrapper = styled.footer`
   background-color: #201b32;
@@ -135,7 +134,7 @@ export const Icon = styled.button`
   border-radius: 50%;
   aspect-ratio: 1 / 1;
   width: 40px;
-  ${flex_center}
+  ${({ theme }) => theme.content.center}
   background-color: #fff;
   svg {
     path {
@@ -160,7 +159,7 @@ export const Icon = styled.button`
 `;
 
 export const Flex = styled.div`
-  ${flex_center}
+  ${({ theme }) => theme.content.center}
   gap: 10px;
   @media screen and (max-width: 540px) {
     justify-content: flex-start;
